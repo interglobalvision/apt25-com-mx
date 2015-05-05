@@ -28,7 +28,13 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'admin-thumb', 150, 150, false );
   add_image_size( 'opengraph', 1200, 630, true );
 
-  add_image_size( 'name', 199, 299, true );
+  add_image_size( 'feed-square', 700, 700, true );
+  add_image_size( 'feed-small', 900, 500, true );
+  add_image_size( 'feed-large', 1200, 500, true );
+
+  add_image_size( 'image-small', 700, 700, false );
+  add_image_size( 'image-basic', 1000, 700, false );
+  add_image_size( 'image-large', 1600, 1200, false );
 }
 
 // Register Nav Menus
@@ -41,6 +47,7 @@ register_nav_menus( array(
 get_template_part( 'lib/gallery' );
 get_template_part( 'lib/post-types' );
 get_template_part( 'lib/meta-boxes' );
+get_template_part( 'lib/theme-options' );
 
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 function cmb_initialize_cmb_meta_boxes() {
@@ -89,6 +96,16 @@ function wpb_imagelink_setup() {
 	}
 }
 add_action('admin_init', 'wpb_imagelink_setup', 10);
+
+
+// include post types in main loop
+function my_get_posts( $query ) {
+  if ( is_home() && $query->is_main_query() )
+    $query->set( 'post_type', array( 'post', 'lookbook', 'product' ) );
+
+  return $query;
+}
+add_filter( 'pre_get_posts', 'my_get_posts' );
 
 // custom login logo
 /*
