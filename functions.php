@@ -75,7 +75,13 @@ function new_display_post_thumbnail_column($col, $id){
   }
 }
 
-// remove automatic <a> links from images in blog
+// remove <p> tag from images in the content
+function filter_ptags_on_images($content){
+    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');
+
+// remove automatic <a> links on images in the content
 function wpb_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
 	if($image_set !== 'none') {
@@ -93,6 +99,20 @@ add_action( 'login_head', 'custom_login_logo' );
 */
 
 // UTILITY FUNCTIONS
+
+
+// to replace file_get_contents
+function url_get_contents($Url) {
+  if (!function_exists('curl_init')){
+      die('CURL is not installed!');
+  }
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $Url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  $output = curl_exec($ch);
+  curl_close($ch);
+  return $output;
+}
 
 // get ID of page by slug
 function get_id_by_slug($page_slug) {
