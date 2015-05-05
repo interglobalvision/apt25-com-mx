@@ -14,7 +14,6 @@
   <link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon-touch.png">
   <link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.png">
 
-
   <script src="<?php bloginfo('stylesheet_directory'); ?>/js/vendor/modernizr.js"></script>
   <script type="text/javascript">
     /* Modernizr 2.8.3 (Custom Build) | MIT & BSD Build: http://modernizr.com/download/#-shiv-mq-cssclasses-teststyles-load */
@@ -37,5 +36,26 @@
 
   <!-- start content -->
   <header id="header">
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+    <div class="container container-large">
+      <div class="row">
+        <div class="col into-2">
+          <a href="<?php echo home_url(); ?>" class="logo"><?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/logo.svg' ); ?></a>
+        </div>
+        <div class="col into-2">
+          <nav class="main-menu">
+            <ul>
+              <li>
+                <a href="#">Shop</a>
+              </li>
+              <li>
+                <a href="#">Archive</a>
+              </li>
+              <li>
+                Search
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
   </header>
