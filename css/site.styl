@@ -15,6 +15,7 @@ $container = 1200px
   width: $container*0.64
 .row
   clear: both
+  margin-bottom: 1em
 .col
   float: left
   padding: 0 ($gutter/2)
@@ -49,11 +50,9 @@ body
 
 h1
   font-size: $font-size-header
-  margin-bottom: 1em
 
 h2
   font-size: $font-size-medium
-  margin-bottom: 1em
 
 h3
   font-size: $font-size-basic
@@ -70,9 +69,6 @@ p
 
 a,a:active,a:visited
   color:inherit
-  transition:opacity .2s
-  &:hover
-    opacity:.5
 
 
 // BASIC
@@ -82,7 +78,7 @@ html
   color: $color-black-soft
 
 img
-  max-width: 100%
+  width: 100%
   height: auto
 
 
@@ -97,7 +93,7 @@ img
   
 .logo
   display: inline-block
-  height: 200px
+  height: $margin-large
   float: left
   svg
     height: 100%
@@ -109,11 +105,18 @@ img
   text-align: right
   li
     display: inline-block
-    margin-left: $margin-small
+    margin: 0 ($margin-small/2)
 
 // POSTS LOOP
 #posts
   width: 100%
+  
+article
+  margin: 0 0 $margin-large
+  
+.type-post
+  h2
+    margin-bottom: 1em
 
 .post
   width: 100%
@@ -126,6 +129,13 @@ img
 
 #footer
   width: 100%
+  font-size: $font-size-basic
+  padding: $margin-small 0
+  border-top: 1px solid $color-black-soft
+
+.footer-social
+  text-align: right
+  font-size: $font-size-medium
 
 /*
 // MEDIA QUERIES

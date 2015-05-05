@@ -698,6 +698,7 @@ ul.u-inline-list li {
 }
 .row {
   clear: both;
+  margin-bottom: 1em;
 }
 .col {
   float: left;
@@ -742,11 +743,9 @@ body {
 }
 h1 {
   font-size: 36px;
-  margin-bottom: 1em;
 }
 h2 {
   font-size: 30px;
-  margin-bottom: 1em;
 }
 h3 {
   font-size: 21px;
@@ -761,20 +760,13 @@ a,
 a:active,
 a:visited {
   color: inherit;
-  -webkit-transition: opacity 0.2s;
-          transition: opacity 0.2s;
-}
-a:hover,
-a:active:hover,
-a:visited:hover {
-  opacity: 0.5;
 }
 html {
   background-color: #fff;
   color: #0e0e0e;
 }
 img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 #header {
@@ -784,7 +776,7 @@ img {
 }
 .logo {
   display: inline-block;
-  height: 200px;
+  height: 140px;
   float: left;
 }
 .logo svg {
@@ -798,10 +790,16 @@ img {
 }
 .main-menu li {
   display: inline-block;
-  margin-left: 28px;
+  margin: 0 14px;
 }
 #posts {
   width: 100%;
+}
+article {
+  margin: 0 0 140px;
+}
+.type-post h2 {
+  margin-bottom: 1em;
 }
 .post {
   width: 100%;
@@ -811,6 +809,13 @@ img {
 }
 #footer {
   width: 100%;
+  font-size: 21px;
+  padding: 28px 0;
+  border-top: 1px solid #0e0e0e;
+}
+.footer-social {
+  text-align: right;
+  font-size: 30px;
 }
 /*
 // MEDIA QUERIES
