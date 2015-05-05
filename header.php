@@ -27,6 +27,8 @@
   </script>
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -35,27 +37,25 @@
   <section id="main-container">
 
   <!-- start content -->
-  <header id="header">
-    <div class="container container-large">
-      <div class="row">
-        <div class="col into-2">
-          <a href="<?php echo home_url(); ?>" class="logo"><?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/logo.svg' ); ?></a>
-        </div>
-        <div class="col into-2">
-          <nav class="main-menu">
-            <ul>
-              <li>
-                <a href="#">Shop</a>
-              </li>
-              <li>
-                <a href="#">Archive</a>
-              </li>
-              <li>
-                Search
-              </li>
-            </ul>
-          </nav>
-        </div>
+  <header id="header" class="container">
+    <div class="row">
+      <div class="col into-2">
+        <a href="<?php echo home_url(); ?>" class="logo"><?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/logo.svg' ); ?></a>
+      </div>
+      <div class="col into-2">
+        <nav class="main-menu">
+          <ul>
+            <li>
+              <a href="#">Shop</a>
+            </li>
+            <li>
+              <a href="#">Archive</a>
+            </li>
+            <li>
+              Search
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
