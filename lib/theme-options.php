@@ -12,6 +12,8 @@ class IGV_Admin {
  	 */
 	private $key = 'IGV_options';
 
+	private $prefix = '_igv_';
+
 	/**
  	 * Options page metabox id
  	 * @var string
@@ -98,12 +100,53 @@ class IGV_Admin {
 		// Set our CMB2 fields
 
 		$cmb->add_field( array(
-		'name' => __( 'Logo', 'cmb2' ),
-		'desc' => __( '', 'cmb2' ),
-		'id'   => $prefix . 'logo',
-		'type' => 'file',
+      'name' => 'Address',
+      'desc' => 'appears in the footer',
+      'id' => $this->prefix . 'address',
+      'type' => 'text'
+    ) );
 
-	) );
+    $cmb->add_field( array(
+      'name' => 'Hours',
+      'desc' => 'appears in the footer',
+      'id' => $this->prefix . 'hours',
+      'type' => 'textarea'
+    ) );
+
+    $cmb->add_field( array(
+      'name' => 'Email',
+      'desc' => 'appears in the footer',
+      'id' => $this->prefix . 'email',
+      'type' => 'text'
+    ) );
+
+    $cmb->add_field( array(
+      'name' => 'Facebook link',
+      'desc' => 'appears in the footer',
+      'id' => $this->prefix . 'facebook',
+      'type' => 'text'
+    ) );
+
+    $cmb->add_field( array(
+      'name' => 'Twitter link',
+      'desc' => 'appears in the footer',
+      'id' => $this->prefix . 'twitter',
+      'type' => 'text'
+    ) );
+
+    $cmb->add_field( array(
+      'name' => 'Instagram link',
+      'desc' => 'appears in the footer',
+      'id' => $this->prefix . 'instagram',
+      'type' => 'text'
+    ) );
+
+		$cmb->add_field( array(
+      'name' => 'Google Analytics Code',
+      'desc' => 'paste in the code google tells you to',
+      'id' => $this->prefix . 'google_analytics',
+      'type' => 'textarea_code'
+    ) );
 
 	}
 
