@@ -24,7 +24,7 @@ if ( $post_type == 'post' ) {
       <div class="container container-small">
         <div class="row">
           <div class="col into-2">
-            <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'post-thumb' ); ?></a>
+            <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-square' ); ?></a>
           </div>
           <div class="col into-2">
             <span class="date"><?php the_date( ); ?></span>
@@ -41,14 +41,17 @@ if ( $post_type == 'post' ) {
       <div class="container container-medium">
         <div class="row">
           <div class="col into-1">
-            <?php the_post_thumbnail( 'post-thumb' ); ?>
+            <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-large' ); ?></a>
           </div>
         </div>
       </div>
       <div class="container container-small">
         <div class="row">
           <div class="col into-2">
-            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+            <h2>
+              <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+            </h2>
+            <span class="date"><?php the_date( ); ?></span>
           </div>
           <div class="col into-2">
             <?php the_content(); ?>
@@ -59,14 +62,16 @@ if ( $post_type == 'post' ) {
 } else if ( $post_type == 'product') { 
 ?>
       <div class="container container-medium">
-        <div class="row">
-          <div class="col into-2">
-            <!-- PRODUCT IMAGE 1 -->
+        <a href="<?php // LINK TO PRODUCT ?>">
+          <div class="row">
+            <div class="col into-2">
+              <!-- PRODUCT IMAGE 1 -->
+            </div>
+            <div class="col into-2">
+              <!-- PRODUCT IMAGE 2 -->
+            </div>
           </div>
-          <div class="col into-2">
-            <!-- PRODUCT IMAGE 2 -->
-          </div>
-        </div>
+        </a>
       </div>
       <div class="container container-small">
         <div class="row">
