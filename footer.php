@@ -1,4 +1,26 @@
-    <footer id="footer">
+<?php
+$address = IGV_get_option('_igv_address');
+$hours = IGV_get_option('_igv_hours');
+$email = IGV_get_option('_igv_email');
+$facebook = IGV_get_option('_igv_facebook');
+$twitter = IGV_get_option('_igv_twitter');
+$instagram = IGV_get_option('_igv_instagram');
+?>
+    <footer id="footer" class="container">
+      <div class="row">
+        <div class="col into-3">
+          <?php if (!empty($address)) { echo '<strong>' . $address . '</strong>'; } ?>
+          <?php if (!empty($hours)) { echo wpautop( $hours ); } ?>
+        </div>
+        <div class="col into-3">
+          <?php if (!empty($email)) { echo '<a href="mailto:' . $email . '">' . $email . '</a>'; } ?>
+        </div>
+        <div class="col into-3 footer-social">
+          <?php if (!empty($facebook)) { echo '<a href="' . $facebook . '" target="_blank"><span class="fa fa-facebook-square"></span></a>'; } ?>
+          <?php if (!empty($twitter)) { echo '<a href="' . $twitter . '" target="_blank"><span class="fa fa-twitter-square"></span></a>'; } ?>
+          <?php if (!empty($instagram)) { echo '<a href="' . $instagram . '" target="_blank"><span class="fa fa-instagram"></span></a>'; } ?>
+        </div>
+      </div>
     </footer>
 
   </section>
