@@ -833,12 +833,16 @@ article h1 {
 }
 #pagination {
   width: 100%;
+  margin-bottom: 56px;
+}
+#pagination svg {
+  width: 112px;
 }
 #footer {
   width: 100%;
   font-size: 21px;
   padding: 28px 0;
-  border-top: 1px solid #0e0e0e;
+  border-top: 2px solid #0e0e0e;
 }
 #footer .row {
   margin-bottom: 0;
