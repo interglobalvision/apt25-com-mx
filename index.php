@@ -32,7 +32,7 @@ if ( $post_type == 'post' ) {
             <h2>
               <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
             </h2>
-            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-thumb-tack"></span></p>
+            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'post' ); ?>"><span class="fa fa-thumb-tack"></span></a></p>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@ if ( $post_type == 'post' ) {
             <span class="date"><?php the_date( ); ?></span>
           </div>
           <div class="col into-2">
-            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-eye"></span></p>
+            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ if ( $post_type == 'post' ) {
             <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
           </div>
           <div class="col into-2">
-            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-shopping-cart"></span></p>
+            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'product' ); ?>"><span class="fa fa-shopping-cart"></span></a></p>
           </div>
         </div>
       </div>
