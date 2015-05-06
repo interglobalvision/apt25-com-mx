@@ -65,64 +65,46 @@ function my_gallery_shortcode($attr) {
 		return $output;
 	}
 
-	$itemtag = tag_escape($itemtag);
-	$captiontag = tag_escape($captiontag);
-	$icontag = tag_escape($icontag);
-	$valid_tags = wp_kses_allowed_html( 'post' );
-	if ( ! isset( $valid_tags[ $itemtag ] ) )
-		$itemtag = 'dl';
-	if ( ! isset( $valid_tags[ $captiontag ] ) )
-		$captiontag = 'dd';
-	if ( ! isset( $valid_tags[ $icontag ] ) )
-		$icontag = 'dt';
-
-	$columns = intval($columns);
-	$itemwidth = $columns > 0 ? floor(100/$columns) : 100;
-	$float = is_rtl() ? 'right' : 'left';
-
-	$selector = "gallery-{$instance}";
-
-	$gallery_div = "<div id='$selector' class='cycle-slideshow gallery galleryid-{$id}' data-cycle-fx='scrollHorz' data-cycle-timeout='0' data-cycle-swipe=true data-cycle-slides='div'>
-	<nav class='cycle-prev'></nav>
-    <nav class='cycle-next'></nav>
-    ";
-	$output = $gallery_div;
-
 	$i = 0;
 	foreach ( $attachments as $id => $attachment ) {
 
 		$tag = '';
 
 		$img = wp_get_attachment_image_src($id, $size);
+		$dimensions = getimagesize($img[0]);
+		$into = 1;
+		$orientation = 'landscape';
+		if ($dimensions[1] > $dimensions[0]) {
+			$into = 2;
+			$orientation = 'portrait';
+			$rand_direction = 'top';
+			$max = 50;
+		} else {
+			$rand = rand ( 0 , 1 );
+			if ( $rand == 0 ) {
+				$rand_direction = 'left';
+			} else {
+				$rand_direction = 'right';
+			}
+			$max = 20;
+		}
+		$min = 10;
+		$rand_percent = rand ( $min , $max );
+		
 /*
 		$largeimg = wp_get_attachment_image_src($id, 'single');
 		$large = $largeimg[0];
 */
 
-if ( $captiontag && trim($attachment->post_excerpt) ) {
+if ( trim($attachment->post_excerpt) ) {
 			$tag = "
-				<{$captiontag} class='wp-caption-text gallery-caption'>
-				" . wptexturize($attachment->post_excerpt) . "
-				</{$captiontag}>";
+				<span class='wp-caption-text gallery-caption'>" . wptexturize($attachment->post_excerpt) . "</span>";
 		} else {
 			$tag = null;
 		}
 
-		/*
 
-		$output .= "
-			<{$icontag} class='gallery-item'>
-			<div class='gallery-item-holder'>
-				<div class='gallery-img'>
-					<img src='{$img[0]}'>
-				</div>
-				{$tag}
-			</div>
-			</{$icontag}>";
-*/
-
-
-		$output .= "<div><img src='{$img[0]}'>{$tag}</div>";
+		$output .= '<div class="col into-' . $into . '"><div class="img-container-' . $orientation . '" style="padding-' . $rand_direction . ': ' . $rand_percent . '%"><img src="' . $img[0] . '">' . $tag . '</div></div>';
 		}
 
 	$output .= "</div>\n";
