@@ -5,11 +5,14 @@ $email = IGV_get_option('_igv_email');
 $facebook = IGV_get_option('_igv_facebook');
 $twitter = IGV_get_option('_igv_twitter');
 $instagram = IGV_get_option('_igv_instagram');
+
+$address_replaced = preg_replace("/[\s]/","+",$address);
+$maps_url = 'https://www.google.com.mx/maps/place/'.$address_replaced;
 ?>
     <footer id="footer" class="container">
       <div class="row">
         <div class="col into-3">
-          <?php if (!empty($address)) { echo '<strong>' . $address . '</strong>'; } ?>
+          <?php if (!empty($address)) { echo '<strong><a href="'. $maps_url . '" target="_blank">' . $address . '</a></strong>'; } ?>
           <?php if (!empty($hours)) { echo wpautop( $hours ); } ?>
         </div>
         <div class="col into-3">
