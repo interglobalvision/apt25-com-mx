@@ -78,6 +78,7 @@ if( have_posts() ) {
       if ( empty( $entry_id ) ) {
         $rand_args = array(
           'orderby' => 'rand',
+          'post_type' => array('post','lookbook','product'),
           'post__not_in' => array($post->ID),
           'numberposts'=>1,
         );
@@ -87,7 +88,7 @@ if( have_posts() ) {
         }
       }
 ?>
-      
+
         <article class="col into-2">
           <?php include(locate_template('archive-entry.php')); ?>      
         </article>
