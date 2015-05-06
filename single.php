@@ -32,7 +32,9 @@ if( have_posts() ) {
       <div class="container container-medium">
         <div class="row">
           <div class="col into-1">
-            <?php the_content(); ?>
+            <div class="type-post-content">
+              <?php the_content(); ?>
+            </div>
           </div>
         </div>
       </div>
