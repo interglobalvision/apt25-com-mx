@@ -78,6 +78,7 @@ function my_gallery_shortcode($attr) {
 			$into = 2;
 			$orientation = 'portrait';
 			$rand_direction = 'top';
+			$min = 20;
 			$max = 50;
 		} else {
 			$rand = rand ( 0 , 1 );
@@ -86,9 +87,9 @@ function my_gallery_shortcode($attr) {
 			} else {
 				$rand_direction = 'right';
 			}
+			$min = 10;
 			$max = 20;
 		}
-		$min = 10;
 		$rand_percent = rand ( $min , $max );
 		
 /*
