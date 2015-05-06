@@ -1,6 +1,5 @@
 <?php
 $post_type = get_post_type();
-$excerpt = get_the_excerpt();
 ?>
 <article class="col into-3">
   <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-small' ); ?></a>
