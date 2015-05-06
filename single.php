@@ -29,11 +29,11 @@ if( have_posts() ) {
 <?php 
     if ($post_type == 'post') { 
 ?>
-              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-thumb-tack"></span></p>
+              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_bloginfo( 'url' ) . '/posts/'; ?>"><span class="fa fa-thumb-tack"></span></a></p>
 <?php 
     } elseif ($post_type == 'lookbook'){
 ?>
-              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-eye"></span></p>
+              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
 <?php 
     } else {
 ?>
