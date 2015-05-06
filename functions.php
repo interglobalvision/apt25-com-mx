@@ -52,8 +52,14 @@ get_template_part( 'lib/theme-options' );
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 function cmb_initialize_cmb_meta_boxes() {
   // Add CMB2 plugin
-  if( ! class_exists( 'cmb2_bootstrap_202' ) )
+  if( ! class_exists( 'cmb2_bootstrap_202' ) ) {
     require_once 'lib/CMB2/init.php';
+  }
+
+  // Add CMB2 Attached Posts Field plugin
+  if ( ! function_exists( 'cmb2_attached_posts_fields_render' ) ) {
+    require_once 'lib/CMB2-plugins/cmb2-post-search/cmb2_post_search_field.php';
+  }
 }
 
 // Disable that freaking admin bar
