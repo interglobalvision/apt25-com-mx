@@ -29,13 +29,13 @@ if( have_posts() ) {
 <?php
     if ($post_type == 'post') {
 ?>
-              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-thumb-tack"></span></p>
+              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_bloginfo( 'url' ) . '/posts/'; ?>"><span class="fa fa-thumb-tack"></span></a></p>
 <!--               >> what does those classes mean? fa? classes need to be explanitory doesnt matter if they a few more chars -->
 <!--               >> maybe we should express this space space dash thing in a nicer way. could just at least make php function to echo that so we can change it sitewide if we need to -->
 <?php
     } elseif ($post_type == 'lookbook'){
 ?>
-              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-eye"></span></p>
+              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
 <?php
     } else {
 ?>
@@ -80,6 +80,7 @@ if( have_posts() ) {
       if ( empty( $entry_id ) ) {
         $rand_args = array(
           'orderby' => 'rand',
+          'post_type' => array('post','lookbook','product'),
           'post__not_in' => array($post->ID),
           'numberposts'=>1,
         );
