@@ -69,8 +69,33 @@ if( have_posts() ) {
       </div>
     </article>
 
+    <div class="container container-small">
+      <div class="row">
+<?php 
+    for ($i = 1; $i <= 2; $i++) {
+      $related = get_post_meta( $post->ID, '_igv_related' . $i, true );
+      $entry_id = $related;
+?>
+   
+        <article class="col into-2">
+          <?php 
+          $related_post = get_post( $related ); 
+          setup_postdata( $related_post ); 
+          include(locate_template('archive-entry.php')); 
+          ?>      
+        </article>
+      
 <?php
-  }
+      wp_reset_postdata();
+    } // end for
+?>
+
+      </div>
+    </div>
+
+<?php
+  } // end while
+
 } else {
 ?>
     <article class="u-alert">
@@ -84,6 +109,7 @@ if( have_posts() ) {
     </div>
   <!-- end posts -->
   </section>
+
 
   <?php get_template_part('partials/pagination'); ?>
 
