@@ -28,11 +28,11 @@ if ( $post_type == 'post' ) {
             <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-square' ); ?></a>
           </div>
           <div class="col into-2">
-            <span class="date"><?php the_date( ); ?></span>
+            <span class="date"><?php echo get_the_date(); ?></span>
             <h2>
               <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
             </h2>
-            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'post' ); ?>"><span class="fa fa-thumb-tack"></span></a></p>
+            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_bloginfo( 'url' ) . '/posts/'; ?>"><span class="fa fa-thumb-tack"></span></a></p>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ if ( $post_type == 'post' ) {
             <h2>
               <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
             </h2>
-            <span class="date"><?php the_date( ); ?></span>
+            <span class="date"><?php echo get_the_date(); ?></span>
           </div>
           <div class="col into-2">
             <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
