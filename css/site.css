@@ -812,8 +812,13 @@ article h1 {
 .post {
   width: 100%;
 }
-.post-details {
-  padding-left: 28px;
+.type-post-content p {
+  width: 840px;
+  margin: 0 auto 1em;
+  padding: 0 14px;
+}
+.type-post-content img {
+  margin: 0 auto 1em;
 }
 #pagination {
   width: 100%;
@@ -823,6 +828,12 @@ article h1 {
   font-size: 21px;
   padding: 28px 0;
   border-top: 1px solid #0e0e0e;
+}
+#footer .row {
+  margin-bottom: 0;
+}
+#footer p {
+  margin-bottom: 0;
 }
 .footer-social {
   text-align: right;
