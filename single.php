@@ -21,21 +21,50 @@ if( have_posts() ) {
       <div class="container container-small">
         <div class="row">
           <div class="col into-1">
-            <span class="date"><?php the_date( ); ?></span>
-            <h1>
-              <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-            </h1>
-            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-thumb-tack"></span></p>
+            <div class="single-post-details">
+              <span class="date"><?php the_date( ); ?></span>
+              <h1>
+                <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+              </h1>
+<?php 
+    if ($post_type == 'post') { 
+?>
+              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-thumb-tack"></span></p>
+<?php 
+    } elseif ($post_type == 'lookbook'){
+?>
+              <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-eye"></span></p>
+<?php 
+    } else {
+?>
+              <p><?php echo $excerpt; ?></p>
+<?php 
+    } 
+?>
+            </div>
           </div>
         </div>
       </div>
       <div class="container container-medium">
         <div class="row">
-          <div class="col into-1">
+          
+<?php 
+    if ($post_type == 'post') { 
+?>
+          <div class="col into-1"> 
             <div class="type-post-content">
               <?php the_content(); ?>
             </div>
           </div>
+<?php 
+    } else {
+?>          
+          <div class="type-lookbook-content">
+            <?php the_content(); ?>
+          </div>
+<?php 
+    } 
+?>
         </div>
       </div>
     </article>
