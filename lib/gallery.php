@@ -104,7 +104,7 @@ if ( trim($attachment->post_excerpt) ) {
 		}
 
 
-		$output .= '<div class="col into-' . $into . '"><div class="img-container-' . $orientation . '" style="padding-' . $rand_direction . ': ' . $rand_percent . '%"><img src="' . $img[0] . '">' . $tag . '</div></div>';
+		$output .= '<div class="col gallery-item into-' . $into . '"><div class="img-container-' . $orientation . '" style="padding-' . $rand_direction . ': ' . $rand_percent . '%"><img src="' . $img[0] . '">' . $tag . '</div></div>';
 		}
 
 	$output .= "</div>\n";
