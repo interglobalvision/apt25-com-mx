@@ -39,5 +39,30 @@ function igv_cmb_metaboxes() {
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
 	 */
 
+	$related_metabox = new_cmb2_box( array(
+		'id'            => $prefix . 'related',
+		'title'         => __( 'Related Posts', 'cmb2' ),
+		'object_types'  => array( 'post', ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+		// 'cmb_styles' => false, // false to disable the CMB stylesheet
+		// 'closed'     => true, // true to keep the metabox closed by default
+	) );
+
+	$related_metabox->add_field( array(
+		'name' => __( 'Related 1', 'cmb2' ),
+		'desc' => __( '', 'cmb2' ),
+		'id'   => $prefix . 'related1',
+		'type' => 'post_search_text',
+	) );
+
+	$related_metabox->add_field( array(
+		'name' => __( 'Related 2', 'cmb2' ),
+		'desc' => __( '', 'cmb2' ),
+		'id'   => $prefix . 'related2',
+		'type' => 'post_search_text',
+	) );
+
 }
 ?>
