@@ -73,18 +73,25 @@ if( have_posts() ) {
       <div class="row">
 <?php 
     for ($i = 1; $i <= 2; $i++) {
-      $related = get_post_meta( $post->ID, '_igv_related' . $i, true );
-      $entry_id = $related;
+      $entry_id = null;
+      $entry_id = get_post_meta( $post->ID, '_igv_related' . $i, true );
+      if ( empty( $entry_id ) ) {
+        $rand_args = array(
+          'orderby' => 'rand',
+          'post__not_in' => array($post->ID),
+          'numberposts'=>1,
+        );
+        $rand_posts = get_posts($rand_args);
+        foreach ($rand_posts as $rand_post) {
+          $entry_id = $rand_post->ID;
+        }
+      }
 ?>
-   
-        <article class="col into-2">
-          <?php 
-          $related_post = get_post( $related ); 
-          setup_postdata( $related_post ); 
-          include(locate_template('archive-entry.php')); 
-          ?>      
-        </article>
       
+        <article class="col into-2">
+          <?php include(locate_template('archive-entry.php')); ?>      
+        </article>
+       
 <?php
       wp_reset_postdata();
     } // end for
