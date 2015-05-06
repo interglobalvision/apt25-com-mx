@@ -3,19 +3,28 @@ if( get_next_posts_link() || get_previous_posts_link() ) {
 ?>
   <!-- post pagination -->
   <nav id="pagination">
+  	<div class="container container-small">
+	  	<div class="row">
 <?php
 $previous = get_previous_posts_link('Newer');
 $next = get_next_posts_link('Older');
-if ($previous) {
-  echo $previous;
-}
 if ($previous && $next) {
-  echo ' &mdash; ';
-}
-if ($next) {
-  echo $next;
+?>
+				<span class="col into-2 u-align-left"><?php echo $previous; ?></span>
+				<span class="col into-2 u-align-right"><?php echo $next; ?></span>
+<?php
+} else if ($previous && !$next) {
+?>
+				<span class="col into-1 u-align-left"><?php echo $previous; ?></span>
+<?php
+} else if ($next && !$previous) {
+?>
+	  		<span class="col into-1 u-align-right"><?php echo $next; ?></span>
+<?php
 }
 ?>
+			</div>
+		</div>
   </nav>
 <?php
 }
