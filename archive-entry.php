@@ -1,16 +1,15 @@
 <?php
-$post_type = get_post_type();
+$post_type = get_post_type( $entry_id );
 ?>
-<article class="col into-3">
-  <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-small' ); ?></a>
+  <a href="<?php the_permalink() ?>"><?php echo get_the_post_thumbnail( $entry_id, 'feed-small' ); ?></a>
   <h2>
-    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+    <a href="<?php the_permalink() ?>"><?php echo get_the_title( $entry_id ); ?></a>
   </h2>
-  <span class="date"><?php the_date( ); ?></span>
+  <span class="date"><?php echo get_the_date( null, $entry_id ); ?></span>
 <?php 
 if ( $post_type == 'post' ) { 
 ?>
-  &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'post' ); ?>"><span class="fa fa-thumb-tack"></span></a></p>
+  &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_bloginfo( 'url' ) . '/posts/'; ?>"><span class="fa fa-thumb-tack"></span></a></p>
 <?php 
 } else if ( $post_type == 'lookbook') { 
 ?>
