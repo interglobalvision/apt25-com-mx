@@ -812,6 +812,9 @@ article h1 {
 .post {
   width: 100%;
 }
+.single-post-details {
+  padding-left: 56px;
+}
 .type-post-content p {
   width: 840px;
   margin: 0 auto 1em;
@@ -819,6 +822,14 @@ article h1 {
 }
 .type-post-content img {
   margin: 0 auto 1em;
+}
+.gallery-item {
+  margin-bottom: 140px;
+}
+.wp-caption-text {
+  text-align: center;
+  margin-top: 0.5em;
+  display: block;
 }
 #pagination {
   width: 100%;
