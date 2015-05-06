@@ -1,0 +1,69 @@
+<?php
+get_header();
+?>
+
+<!-- main content -->
+
+<main id="main-content">
+
+  <!-- main posts loop -->
+  <section id="posts">
+
+<?php
+if( have_posts() ) { ?>
+    <div class="container container-large">
+      <div class="row">
+<?php
+  while( have_posts() ) {
+    the_post();
+    $post_type = get_post_type();
+    $excerpt = get_the_excerpt();
+?>
+        <article class="col into-3">
+          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-small' ); ?></a>
+          <h2>
+            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+          </h2>
+          <span class="date"><?php the_date( ); ?></span>
+<?php 
+if ( $post_type == 'post' ) { 
+?>
+          &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'post' ); ?>"><span class="fa fa-thumb-tack"></span></a></p>
+<?php 
+} else if ( $post_type == 'lookbook') { 
+?>
+          &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
+<?php 
+} else if ( $post_type == 'product') { 
+?>
+          &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'product' ); ?>"><span class="fa fa-shopping-cart"></span></a></p>
+<?php 
+} 
+?>
+        </article>
+<?php } ?>
+      </div>
+    </div>
+<?php
+} else {
+?>
+    <article class="u-alert">
+      <div class="container container-small">
+        <?php _e('Sorry, no posts matched your criteria :{'); ?>
+      </div>
+    </article>
+<?php
+} ?>
+      
+  <!-- end posts -->
+  </section>
+
+  <?php get_template_part('partials/pagination'); ?>
+
+<!-- end main-content -->
+
+</main>
+
+<?php
+get_footer();
+?>
