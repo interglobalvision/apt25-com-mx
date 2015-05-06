@@ -3,6 +3,8 @@
 Template Name: Post Archive
 */
 get_header();
+
+$num_posts = 12;
 ?>
 
 <!-- main content -->
@@ -14,16 +16,29 @@ get_header();
 
 <?php
   if (is_page()) {
-    $posts = get_posts( 'post_type=post' ); 
-    if (! empty($posts)) { ?>
-      <div class="container container-large">
-        <div class="row">
+    $posts = get_posts( 'post_type=post&posts_per_page=' . $num_posts ); 
+  } else {
+    $post_type = get_post_type();
+    $posts = get_posts( 'post_type=' . $post_type . '&posts_per_page=' . $num_posts ); 
+  }
+  if (! empty($posts)) { ?>
+    <div class="container container-large">
+      <div class="row">
 <?php 
-      foreach ($posts as $post) {
-        setup_postdata( $post );
-        get_template_part('archive','entry');
-      }
-    } else { 
+    foreach ($posts as $post) {
+      setup_postdata( $post );
+      $entry_id = $post->ID;
+?>
+      <article class="col into-3">
+        <?php include(locate_template('archive-entry.php')); ?>
+      </article>
+<?php
+    }
+?>
+      </div>
+    </div>
+<?php 
+  } else { 
 ?>
     <article class="u-alert">
     <div class="container container-small">
@@ -31,33 +46,9 @@ get_header();
     </div>
     </article>
 <?php
-    }
-  } else {
-    if( have_posts() ) { 
-?>
-    <div class="container container-large">
-      <div class="row">
-<?php
-      while( have_posts() ) {
-        the_post();
-        get_template_part('archive','entry');
-      } 
-?>
-      </div>
-    </div>
-<?php
-    } else {
-?>
-    <article class="u-alert">
-      <div class="container container-small">
-        <?php _e('Sorry, no posts matched your criteria :{'); ?>
-      </div>
-    </article>
-<?php
-    } 
   }
 ?>
-      
+
   <!-- end posts -->
   </section>
 
