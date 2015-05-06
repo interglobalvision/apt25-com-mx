@@ -1,9 +1,9 @@
 <?php
 $post_type = get_post_type( $entry_id );
 ?>
-  <a href="<?php the_permalink() ?>"><?php echo get_the_post_thumbnail( $entry_id, 'feed-small' ); ?></a>
+  <a href="<?php echo get_the_permalink( $entry_id ) ?>"><?php echo get_the_post_thumbnail( $entry_id, 'feed-small' ); ?></a>
   <h2>
-    <a href="<?php the_permalink() ?>"><?php echo get_the_title( $entry_id ); ?></a>
+    <a href="<?php echo get_the_permalink( $entry_id ) ?>"><?php echo get_the_title( $entry_id ); ?></a>
   </h2>
   <span class="date"><?php echo get_the_date( null, $entry_id ); ?></span>
 <?php 
