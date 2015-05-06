@@ -19,8 +19,9 @@ if( have_posts() ) {
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-<?php 
-if ( $post_type == 'post' ) { 
+<?php
+if ( $post_type == 'post' ) {
+// >> yeah it kinda sucks when you gotta do these kind of different post types probably be nice to use partials here to keep this template tidy and allow reuse for archive templates
 ?>
       <div class="container container-small">
         <div class="row">
@@ -36,8 +37,8 @@ if ( $post_type == 'post' ) {
           </div>
         </div>
       </div>
-<?php 
-} else if ( $post_type == 'lookbook') { 
+<?php
+} else if ( $post_type == 'lookbook') {
 ?>
       <div class="container container-medium">
         <div class="row">
@@ -59,8 +60,8 @@ if ( $post_type == 'post' ) {
           </div>
         </div>
       </div>
-<?php 
-} else if ( $post_type == 'product') { 
+<?php
+} else if ( $post_type == 'product') {
 ?>
       <div class="container container-medium">
         <a href="<?php // LINK TO PRODUCT ?>">
@@ -84,8 +85,8 @@ if ( $post_type == 'post' ) {
           </div>
         </div>
       </div>
-<?php 
-} 
+<?php
+}
 ?>
 
     </article>
@@ -101,7 +102,7 @@ if ( $post_type == 'post' ) {
     </article>
 <?php
 } ?>
-    
+
     </div>
   <!-- end posts -->
   </section>

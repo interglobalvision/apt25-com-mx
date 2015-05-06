@@ -26,20 +26,22 @@ if( have_posts() ) {
               <h1>
                 <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
               </h1>
-<?php 
-    if ($post_type == 'post') { 
+<?php
+    if ($post_type == 'post') {
 ?>
               <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-thumb-tack"></span></p>
-<?php 
+<!--               >> what does those classes mean? fa? classes need to be explanitory doesnt matter if they a few more chars -->
+<!--               >> maybe we should express this space space dash thing in a nicer way. could just at least make php function to echo that so we can change it sitewide if we need to -->
+<?php
     } elseif ($post_type == 'lookbook'){
 ?>
               <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="fa fa-eye"></span></p>
-<?php 
+<?php
     } else {
 ?>
               <p><?php echo $excerpt; ?></p>
-<?php 
-    } 
+<?php
+    }
 ?>
             </div>
           </div>
@@ -47,23 +49,23 @@ if( have_posts() ) {
       </div>
       <div class="container container-medium">
         <div class="row">
-          
-<?php 
-    if ($post_type == 'post') { 
+
+<?php
+    if ($post_type == 'post') {
 ?>
-          <div class="col into-1"> 
+          <div class="col into-1">
             <div class="type-post-content">
               <?php the_content(); ?>
             </div>
           </div>
-<?php 
+<?php
     } else {
-?>          
+?>
           <div class="type-lookbook-content">
             <?php the_content(); ?>
           </div>
-<?php 
-    } 
+<?php
+    }
 ?>
         </div>
       </div>
@@ -71,7 +73,7 @@ if( have_posts() ) {
 
     <div class="container container-small">
       <div class="row">
-<?php 
+<?php
     for ($i = 1; $i <= 2; $i++) {
       $entry_id = null;
       $entry_id = get_post_meta( $post->ID, '_igv_related' . $i, true );
@@ -81,17 +83,19 @@ if( have_posts() ) {
           'post__not_in' => array($post->ID),
           'numberposts'=>1,
         );
+        // >> this should be a tags query so the post is a bit related. Ive got a boiler somewhere but probably something better out there
+
         $rand_posts = get_posts($rand_args);
         foreach ($rand_posts as $rand_post) {
           $entry_id = $rand_post->ID;
         }
       }
 ?>
-      
+
         <article class="col into-2">
-          <?php include(locate_template('archive-entry.php')); ?>      
+          <?php include(locate_template('archive-entry.php')); ?>
         </article>
-       
+
 <?php
       wp_reset_postdata();
     } // end for
@@ -112,7 +116,7 @@ if( have_posts() ) {
     </article>
 <?php
 } ?>
-    
+
     </div>
   <!-- end posts -->
   </section>
