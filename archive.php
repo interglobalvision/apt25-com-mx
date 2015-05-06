@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: Post Archive
+*/
 get_header();
 ?>
 
@@ -10,42 +13,40 @@ get_header();
   <section id="posts">
 
 <?php
-if( have_posts() ) { ?>
+  if (is_page()) {
+    $posts = get_posts( 'post_type=post' ); 
+    if (! empty($posts)) { ?>
+      <div class="container container-large">
+        <div class="row">
+<?php 
+      foreach ($posts as $post) {
+        setup_postdata( $post );
+        get_template_part('archive','entry');
+      }
+    } else { 
+?>
+    <article class="u-alert">
+    <div class="container container-small">
+      <?php _e('Sorry, no posts matched your criteria :{'); ?>
+    </div>
+    </article>
+<?php
+    }
+  } else {
+    if( have_posts() ) { 
+?>
     <div class="container container-large">
       <div class="row">
 <?php
-  while( have_posts() ) {
-    the_post();
-    $post_type = get_post_type();
-    $excerpt = get_the_excerpt();
+      while( have_posts() ) {
+        the_post();
+        get_template_part('archive','entry');
+      } 
 ?>
-        <article class="col into-3">
-          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-small' ); ?></a>
-          <h2>
-            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-          </h2>
-          <span class="date"><?php the_date( ); ?></span>
-<?php 
-if ( $post_type == 'post' ) { 
-?>
-          &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'post' ); ?>"><span class="fa fa-thumb-tack"></span></a></p>
-<?php 
-} else if ( $post_type == 'lookbook') { 
-?>
-          &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
-<?php 
-} else if ( $post_type == 'product') { 
-?>
-          &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'product' ); ?>"><span class="fa fa-shopping-cart"></span></a></p>
-<?php 
-} 
-?>
-        </article>
-<?php } ?>
       </div>
     </div>
 <?php
-} else {
+    } else {
 ?>
     <article class="u-alert">
       <div class="container container-small">
@@ -53,7 +54,9 @@ if ( $post_type == 'post' ) {
       </div>
     </article>
 <?php
-} ?>
+    } 
+  }
+?>
       
   <!-- end posts -->
   </section>
