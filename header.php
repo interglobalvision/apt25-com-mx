@@ -43,7 +43,7 @@
         <a href="<?php echo home_url(); ?>" class="logo"><?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/logo.svg' ); ?></a>
       </div>
       <div class="col into-2">
-        <nav class="main-menu">
+        <nav class="main-menu u-bold-cn">
           <ul>
 <?php
   $shop_url = IGV_get_option('_igv_shop_url');

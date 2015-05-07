@@ -833,6 +833,10 @@ em strong {
   font-weight: 200;
   font-size: 16px;
 }
+.u-bold-cn {
+  font-style: normal;
+  font-weight: 600;
+}
 a,
 a:active,
 a:visited {
@@ -863,8 +867,6 @@ img {
   float: right;
   font-size: 21px;
   text-align: right;
-  font-style: normal;
-  font-weight: 600;
   text-transform: uppercase;
 }
 .main-menu li {

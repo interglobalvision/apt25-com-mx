@@ -66,12 +66,12 @@ if( have_posts() ) {
       </div>
       <div class="container container-small">
         <div class="row">
-          <div class="col into-1">
+          <div class="col into-1 single-post-footer">
 <?php 
     if ($post_type == 'lookbook') {
       $credits = get_post_meta( $post->ID, '_igv_credits', true );
       if (! empty($credits)) {
-        echo '<ul class="credits"><strong>CREDITS: </strong>';
+        echo '<ul class="credits"><span class="u-bold-cn">CREDITS: </span>';
         foreach ( $credits as $credit ) {
           if (! empty($credit['link'])) {
             $credit_output = '<li>' . $credit['role'] . ' &mdash; <a href="' . $credit['link'] . '">' . $credit['name'] . '</a></li>';
@@ -84,9 +84,9 @@ if( have_posts() ) {
       }
     }
 ?>
-            <?php the_tags( '<p class="post-tags"><strong>TAGGED: </strong>', ',', '</p>'); ?>
+            <?php the_tags( '<p class="post-tags"><span class="u-bold-cn">TAGGED: </span>', ',', '</p>'); ?>
             <p class="post-share">
-              <strong>SHARE: </strong>
+              <span class="u-bold-cn">SHARE: </span>
               <a href="#"><span class="fa fa-twitter"></span></a>
               <a href="#"><span class="fa fa-facebook"></span></a>
             </p>
