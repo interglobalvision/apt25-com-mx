@@ -5,6 +5,7 @@ Template Name: Post Archive
 get_header();
 
 $num_posts = 12;
+
 ?>
 
 <!-- main content -->
@@ -16,11 +17,35 @@ $num_posts = 12;
 
 <?php
   if (is_page()) {
-    $posts = get_posts( 'post_type=post&posts_per_page=' . $num_posts );
+    $args = array(
+      'posts_per_page' => $num_posts,
+      'post_type' => 'post',
+    );
+  } else if (is_tag()) {
+    $term_id = get_query_var('tag_id');
+    $taxonomy = 'post_tag';
+    $args ='include=' . $term_id;
+    $terms = get_terms( $taxonomy, $args );
+    $tag_slug = $terms[0]->slug;
+    $args = array(
+      'posts_per_page' => $num_posts,
+      'post_type' => array('post','lookbook','product'),
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'post_tag',
+          'field'    => 'slug',
+          'terms'    => $tag_slug,
+        ),
+      ),
+    );
   } else {
     $post_type = get_post_type();
-    $posts = get_posts( 'post_type=' . $post_type . '&posts_per_page=' . $num_posts );
+    $args = array(
+      'posts_per_page' => $num_posts,
+      'post_type' => $post_type,
+    );
   }
+  $posts = get_posts( $args );
   if (! empty($posts)) { ?>
     <div class="container container-large">
       <div class="row">
@@ -30,10 +55,7 @@ $num_posts = 12;
       $entry_id = $post->ID;
 ?>
       <article class="col into-3">
-<?php
-        set_query_var( 'entry_id', $entry_id );
-        get_template_part( 'archive', 'entry' )); ?>
-?>
+        <?php set_query_var( 'entry_id', $entry_id ); get_template_part( 'archive', 'entry' ); ?>   
       </article>
 <?php
     }
