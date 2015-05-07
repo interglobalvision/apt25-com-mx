@@ -9,7 +9,7 @@ foreach( $all_tags as $tag ) {
 
 $related_id = get_post_meta( $post->ID, '_igv_related1', true );
 
-if ( empty( $related_id_1 ) ) {
+if ( empty( $related_id ) ) {
   $rand_args = array(
     'orderby' => 'rand',
     'post_type' => array('post','lookbook','product'),
