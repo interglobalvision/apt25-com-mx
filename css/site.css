@@ -898,10 +898,18 @@ img {
   font-size: 21px;
   text-align: right;
   text-transform: uppercase;
+  visibility: hidden;
 }
-.main-menu li {
+.menu-item {
   display: inline-block;
+  position: relative;
   margin: 0 14px;
+}
+.menu-item svg {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
 }
 #posts {
   width: 100%;

@@ -176,10 +176,18 @@ img
   font-size: $font-size-basic
   text-align: right
   text-transform: uppercase
-  li
-    display: inline-block
-    margin: 0 ( $margin-small / 2 )
-    
+  visibility: hidden;
+
+.menu-item
+  display: inline-block
+  position: relative
+  margin: 0 ( $margin-small / 2 )
+  svg
+    width: 100%; 
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+
 
 // POSTS LOOP
 #posts
