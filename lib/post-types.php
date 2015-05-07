@@ -52,7 +52,8 @@ function register_cpt_lookbook() {
         'query_var' => true,
         'can_export' => true,
         'rewrite' => true,
-        'capability_type' => 'post'
+        'capability_type' => 'post',
+        'taxonomies' => array('post_tag')
     );
 
     register_post_type( 'lookbook', $args );
@@ -95,7 +96,8 @@ function register_cpt_product() {
         'query_var' => true,
         'can_export' => true,
         'rewrite' => true,
-        'capability_type' => 'post'
+        'capability_type' => 'post',
+        'taxonomies' => array('post_tag')
     );
 
     register_post_type( 'product', $args );
