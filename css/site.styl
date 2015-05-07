@@ -61,13 +61,13 @@ h3
 
 p
   margin-bottom: 1em
-  
+
 .date
   font-size: $font-size-small
-  
-.fa 
+
+.fa
   line-height: $font-leading-basic
-  
+
 
 
 // LINKS
@@ -91,18 +91,18 @@ img
 
 // HEADER
 
-#header 
+#header
   width: 100%
   font-size: $font-size-basic
   margin: $margin-small 0
-  
+
 .logo
   display: inline-block
   height: $margin-large
   float: left
   svg
     height: 100%
-    
+
 .main-menu
   display: inline-block
   float: right
@@ -115,10 +115,11 @@ img
 // POSTS LOOP
 #posts
   width: 100%
-  
+
 article
   margin: 0 0 $margin-large
   h1
+// >> could this have a class like .article-title ?
     margin-bottom: .5em
 
 .type-post
@@ -127,21 +128,22 @@ article
 
 .post
   width: 100%
-  
+
 .single-post-details
   padding-left: $margin-basic
-  
+
 .type-post-content
-  p 
+  p
     width: $container*0.70
+// >> maths inside stylus should be wrapped in brackets and with spaces between operators and variables
     margin: 0 auto 1em
     padding: 0 ($gutter/2)
-  img 
+  img
     margin: 0 auto 1em
 
 .gallery-item
   margin-bottom: $margin-large
-    
+
 .wp-caption-text
   text-align: center
   margin-top: .5em
@@ -158,12 +160,13 @@ article
 
 #footer
   width: 100%
+// >> the 100% widths in boiler are mostly just placeholder remove when real styles are added
   font-size: $font-size-basic
   padding: $margin-small 0
   border-top: 2px solid $color-black-soft
-  .row 
+  .row
     margin-bottom: 0
-  p 
+  p
     margin-bottom: 0
 
 .footer-social
@@ -199,16 +202,16 @@ article
 
   body
     font-size: $font-size-basic
-  
+
   // HEADER
-  #header 
+  #header
     padding: $margin-small
     font-size: $font-size-basic
-      
+
   .main-menu
     li
       margin: 0 $margin-small
-      
+
 @media screen and (max-width: ($col * $cols)+($gutter * $cols))
   html
     width: 100%

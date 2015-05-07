@@ -16,29 +16,31 @@ $num_posts = 12;
 
 <?php
   if (is_page()) {
-    $posts = get_posts( 'post_type=post&posts_per_page=' . $num_posts ); 
+    $posts = get_posts( 'post_type=post&posts_per_page=' . $num_posts );
   } else {
     $post_type = get_post_type();
-    $posts = get_posts( 'post_type=' . $post_type . '&posts_per_page=' . $num_posts ); 
+    $posts = get_posts( 'post_type=' . $post_type . '&posts_per_page=' . $num_posts );
   }
   if (! empty($posts)) { ?>
     <div class="container container-large">
       <div class="row">
-<?php 
+<?php
     foreach ($posts as $post) {
       setup_postdata( $post );
       $entry_id = $post->ID;
 ?>
       <article class="col into-3">
         <?php include(locate_template('archive-entry.php')); ?>
+<!-- >> use get_template_part() and put template parts in the partials folder -->
+
       </article>
 <?php
     }
 ?>
       </div>
     </div>
-<?php 
-  } else { 
+<?php
+  } else {
 ?>
     <article class="u-alert">
     <div class="container container-small">
