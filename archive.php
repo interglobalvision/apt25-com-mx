@@ -30,9 +30,10 @@ $num_posts = 12;
       $entry_id = $post->ID;
 ?>
       <article class="col into-3">
-        <?php include(locate_template('archive-entry.php')); ?>
-<!-- >> use get_template_part() and put template parts in the partials folder -->
-
+<?php
+        set_query_var( 'entry_id', $entry_id );
+        get_template_part( 'archive', 'entry' )); ?>
+?>
       </article>
 <?php
     }

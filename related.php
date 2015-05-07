@@ -85,7 +85,10 @@ if ( empty( $related_id ) || $related_id == $entry_id ) {
 
 ?>
     <article class="col into-2">
-      <?php include(locate_template('archive-entry.php')); ?>      
+<?php
+        set_query_var( 'entry_id', $entry_id );
+        get_template_part( 'archive', 'entry' )); ?>
+?>     
     </article>
 
   </div>
