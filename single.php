@@ -21,7 +21,7 @@ if( have_posts() ) {
           <div class="col into-1">
             <div class="single-post-details">
               <span class="date"><?php the_date( ); ?></span>
-              <h1>
+              <h1 class="article-title">
                 <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
               </h1>
 <?php
@@ -67,8 +67,12 @@ if( have_posts() ) {
       <div class="container container-small">
         <div class="row">
           <div class="col into-1">
-            <?php the_tags( '<p><strong>TAGGED: </strong>', ', ', '</p>'); ?>
-            <p><strong>SHARE: </strong></p>
+            <?php the_tags( '<p class="post-tags"><strong>TAGGED: </strong>', ',', '</p>'); ?>
+            <p class="post-share">
+              <strong>SHARE: </strong>
+              <a href="#"><span class="fa fa-twitter"></span></a>
+              <a href="#"><span class="fa fa-facebook"></span></a>
+            </p>
           </div>
         </div>
       </div>
