@@ -13,6 +13,7 @@ if ( empty( $related_id ) ) {
   $rand_args = array(
     'orderby' => 'rand',
     'post_type' => array('post','lookbook','product'),
+    'post_status' => 'publish',
     'post__not_in' => array($post->ID),
     'numberposts' => 1,
     'tax_query' => array(
@@ -70,6 +71,7 @@ if ( empty( $related_id ) || $related_id == $entry_id ) {
     $rand_args = array(
       'orderby' => 'rand',
       'post_type' => array('post','lookbook','product'),
+      'post_status' => 'publish',
       'post__not_in' => array($post->ID, $entry_id),
       'numberposts' => 1,
     );
