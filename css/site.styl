@@ -1,5 +1,6 @@
 @import "sanitize"
 @import "helpers"
+@import "fonts"
 
 $pcols = 10
 $gutter = 28px
@@ -37,36 +38,67 @@ $font-size-header = 36px
 $font-leading-basic = 1.35em
 $font-tracking-basic = 0.001em
 
+$font-helvetica = 'HelveticaNeue',helvetica,arial,sans-serif
+
 $color-black-soft = rgb(14,14,14)
 $color-white-soft = rgb(255,255,255)
 
 // TYPOGRAPHY
 
 body
-  font-family:helvetica,arial,sans-serif
+  font-family: $font-helvetica
+  font-style: normal
+  font-weight: 300
   font-size: $font-size-basic
   line-height: $font-leading-basic
   letter-spacing: $font-tracking-basic
 
 h1
+  font-family: $font-helvetica
+  font-style: normal
+  font-weight: 700
   font-size: $font-size-header
   line-height: $font-leading-basic
 
 h2
+  font-family: $font-helvetica
+  font-style: normal
+  font-weight: 700
   font-size: $font-size-medium
   line-height: $font-leading-basic
 
 h3
+  font-family: $font-helvetica
+  font-style: normal
+  font-weight: 600
   font-size: $font-size-basic
 
 p
+  font-family: $font-helvetica
+  font-style: normal
+  font-weight: 300
   margin-bottom: 1em
 
-.date
-  font-size: $font-size-small
+em
+  font-family: $font-helvetica
+  font-style: italic
+  font-weight: 300
+  
+strong
+  font-family: $font-helvetica
+  font-style: normal
+  font-weight: 500
 
-.fa
-  line-height: $font-leading-basic
+strong em, em strong
+  font-family: $font-helvetica
+  font-style: italic
+  font-weight: 500
+
+.date
+  font-family: $font-helvetica
+  font-style: normal
+  font-weight: 200
+  font-size: $font-size-small
 
 
 
@@ -93,7 +125,6 @@ img
 
 #header
   width: 100%
-  font-size: $font-size-basic
   margin: $margin-small 0
 
 .logo
@@ -106,8 +137,11 @@ img
 .main-menu
   display: inline-block
   float: right
-  font-size: 18px
+  font-size: $font-size-basic
   text-align: right
+  font-style: normal
+  font-weight: 600
+  text-transform: uppercase
   li
     display: inline-block
     margin: 0 ( $margin-small / 2 )
@@ -168,6 +202,9 @@ h1.article-title
   margin-bottom: $margin-basic
   svg
     width: ( $margin-basic * 2 )
+    
+.archive-entry-img
+  margin-bottom: 0.5em
 
 
 // FOOTER
@@ -180,6 +217,10 @@ h1.article-title
     margin-bottom: 0
   p
     margin-bottom: 0
+    
+.address
+  font-style: normal
+  font-weight: 700
 
 .footer-social
   text-align: right
