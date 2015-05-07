@@ -6,7 +6,20 @@ function l(data) {
   console.log(data);
 }
 
+var 
+	menuItemWidth;
+
 jQuery(document).ready(function () {
   'use strict';
   l('Hola Globie');
+
+$('svg').load(function() {
+	$('.js-svg-container').each(function() {
+		menuItemWidth = $(this).children('a').width();
+		$(this).css( 'width' , menuItemWidth );
+		console.log(menuItemWidth);
+		$('.main-menu').css('visibility','visible');
+	});
+});
+  
 });
