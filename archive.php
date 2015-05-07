@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Post Archive
+Template Name: Archive
 */
 get_header();
 
@@ -16,10 +16,15 @@ $num_posts = 12;
   <section id="posts">
 
 <?php
-  if (is_page()) {
+  if (is_page('posts')) {
     $args = array(
       'posts_per_page' => $num_posts,
       'post_type' => 'post',
+    );
+  } else if (is_page('archive')) {
+    $args = array(
+      'post_type' => array('post','lookbook','product'),
+      'posts_per_page' => $num_posts,
     );
   } else if (is_tag()) {
     $term_id = get_query_var('tag_id');

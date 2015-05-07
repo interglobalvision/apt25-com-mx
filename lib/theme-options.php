@@ -99,12 +99,19 @@ class IGV_Admin {
 
 		// Set our CMB2 fields
 
-		$cmb->add_field( array(
-      'name' => 'Address',
-      'desc' => 'appears in the footer',
-      'id' => $this->prefix . 'address',
-      'type' => 'text'
-    ) );
+	$cmb->add_field( array(
+    'name' => 'Shop URL',
+    'desc' => 'for main nav',
+    'id' => $this->prefix . 'shop_url',
+    'type' => 'text'
+  ) );
+
+	$cmb->add_field( array(
+    'name' => 'Address',
+    'desc' => 'appears in the footer',
+    'id' => $this->prefix . 'address',
+    'type' => 'text'
+  ) );
 
     $cmb->add_field( array(
       'name' => 'Hours',

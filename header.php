@@ -45,11 +45,18 @@
       <div class="col into-2">
         <nav class="main-menu">
           <ul>
+<?php
+  $shop_url = IGV_get_option('_igv_shop_url');
+  if (! empty($shop_url)) {
+?>
             <li>
-              <a href="#">Shop</a>
+              <a href="<?php echo $shop_url; ?>">Shop</a>
             </li>
+<?php 
+  }
+?>
             <li>
-              <a href="#">Archive</a>
+              <a href="<?php echo get_bloginfo('url') . '/archive/'; ?>">Archive</a>
             </li>
             <li>
               Search
