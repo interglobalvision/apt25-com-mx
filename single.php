@@ -28,7 +28,7 @@ if( have_posts() ) {
     $post_type = get_post_type();
     $excerpt = get_the_excerpt();
     $excerpt_output = '<p>' . $excerpt . '&nbsp;&nbsp;&mdash;&nbsp;&nbsp; <a href="';
-    
+
     if ($post_type == 'post') {
       $excerpt_output .= get_bloginfo( 'url' ) . '/posts/"><span class="fa fa-thumb-tack"></span></a></p>';
     } elseif ($post_type == 'lookbook'){
@@ -64,6 +64,15 @@ if( have_posts() ) {
 ?>
         </div>
       </div>
+      <div class="container container-small">
+        <div class="row">
+          <div class="col into-1">
+            <?php the_tags( '<p><strong>TAGGED: </strong>', ', ', '</p>'); ?>
+            <p><strong>SHARE: </strong></p>
+          </div>
+        </div>
+      </div>
+
     </article>
 
     <?php get_template_part( 'related' ); ?>
