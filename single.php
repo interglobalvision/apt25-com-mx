@@ -26,20 +26,20 @@ if( have_posts() ) {
               <h1>
                 <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
               </h1>
-<?php 
-    if ($post_type == 'post') { 
+<?php
+    if ($post_type == 'post') {
 ?>
               <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_bloginfo( 'url' ) . '/posts/'; ?>"><span class="fa fa-thumb-tack"></span></a></p>
-<?php 
+<?php
     } elseif ($post_type == 'lookbook'){
 ?>
               <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
-<?php 
+<?php
     } else {
 ?>
               <p><?php echo $excerpt; ?></p>
-<?php 
-    } 
+<?php
+    }
 ?>
             </div>
           </div>
@@ -47,29 +47,29 @@ if( have_posts() ) {
       </div>
       <div class="container container-medium">
         <div class="row">
-          
-<?php 
-    if ($post_type == 'post') { 
+
+<?php
+    if ($post_type == 'post') {
 ?>
-          <div class="col into-1"> 
+          <div class="col into-1">
             <div class="type-post-content">
               <?php the_content(); ?>
             </div>
           </div>
-<?php 
+<?php
     } else {
-?>          
+?>
           <div class="type-lookbook-content">
             <?php the_content(); ?>
           </div>
-<?php 
-    } 
+<?php
+    }
 ?>
         </div>
       </div>
     </article>
 
-    <?php get_template_part( 'related' ); ?>
+      <?php get_template_part( 'related' ); ?>
 
 <?php
   } // end while
@@ -83,7 +83,7 @@ if( have_posts() ) {
     </article>
 <?php
 } ?>
-    
+
     </div>
   <!-- end posts -->
   </section>
