@@ -74,9 +74,9 @@ if( have_posts() ) {
         echo '<ul class="credits"><strong>CREDITS: </strong>';
         foreach ( $credits as $credit ) {
           if (! empty($credit['link'])) {
-            $credit_output = '<li><a href="' . $credit['link'] . '">' . $credit['name'] . '</a> &mdash; ' . $credit['role'] . '</li>';
+            $credit_output = '<li>' . $credit['role'] . ' &mdash; <a href="' . $credit['link'] . '">' . $credit['name'] . '</a></li>';
           } else {
-            $credit_output = '<li>' . $credit['name'] . ' &mdash; ' . $credit['role'] . '</li>';
+            $credit_output = '<li>' . $credit['role'] . ' &mdash; ' . $credit['name'] . '</li>';
           }
           echo $credit_output;
         }
