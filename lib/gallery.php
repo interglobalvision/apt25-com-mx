@@ -78,8 +78,8 @@ function my_gallery_shortcode($attr) {
 			$into = 2;
 			$orientation = 'portrait';
 			$rand_direction = 'top';
-			$min = 20;
-			$max = 50;
+			$min = 10;
+			$max = 30;
 		} else {
 			$rand = rand ( 0 , 1 );
 			if ( $rand == 0 ) {
@@ -87,7 +87,7 @@ function my_gallery_shortcode($attr) {
 			} else {
 				$rand_direction = 'right';
 			}
-			$min = 10;
+			$min = 5;
 			$max = 20;
 		}
 		$rand_percent = rand ( $min , $max );
@@ -105,7 +105,7 @@ if ( trim($attachment->post_excerpt) ) {
 		}
 
 
-		$output .= '<div class="col gallery-item into-' . $into . '"><div class="img-container-' . $orientation . '" style="padding-' . $rand_direction . ': ' . $rand_percent . '%"><img src="' . $img[0] . '">' . $tag . '</div></div>';
+		$output .= '<div class="col gallery-item into-' . $into . '" style="padding-' . $rand_direction . ': ' . $rand_percent . '%"><img src="' . $img[0] . '">' . $tag . '</div>';
 		}
 
 	$output .= "</div>\n";
