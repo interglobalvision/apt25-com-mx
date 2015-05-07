@@ -12,7 +12,7 @@ $maps_url = 'https://www.google.com.mx/maps/place/'.$address_replaced;
     <footer id="footer" class="container">
       <div class="row">
         <div class="col into-3">
-          <?php if (!empty($address)) { echo '<strong><a href="'. $maps_url . '" target="_blank">' . $address . '</a></strong>'; } ?>
+          <?php if (!empty($address)) { echo '<a class="address" href="'. $maps_url . '" target="_blank">' . $address . '</a>'; } ?>
           <?php if (!empty($hours)) { echo wpautop( $hours ); } ?>
         </div>
         <div class="col into-3">
