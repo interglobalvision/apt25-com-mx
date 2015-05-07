@@ -43,26 +43,7 @@
         <a href="<?php echo home_url(); ?>" class="logo"><?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/logo.svg' ); ?></a>
       </div>
       <div class="col into-2">
-        <nav class="main-menu u-bold-cn">
-          <ul>
-<?php
-  $shop_url = IGV_get_option('_igv_shop_url');
-  if (! empty($shop_url)) {
-?>
-            <li>
-              <a href="<?php echo $shop_url; ?>">Shop</a>
-            </li>
-<?php 
-  }
-?>
-            <li>
-              <a href="<?php echo get_bloginfo('url') . '/archive/'; ?>">Archive</a>
-            </li>
-            <li>
-              Search
-            </li>
-          </ul>
-        </nav>
+        <?php get_template_part('partials/nav'); ?>
       </div>
     </div>
   </header>

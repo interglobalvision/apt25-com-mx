@@ -105,6 +105,37 @@ strong em, em strong
   font-weight: 600
   
 
+//FORM
+
+input
+  min-height: 0
+  width: 80px
+  transition: width 1s
+  &:focus
+    outline: none
+    width: 200px
+    
+::-webkit-input-placeholder 
+  color: inherit
+  font-style: inherit
+  font-weight: inherit
+
+:-moz-placeholder 
+  color: inherit
+  font-style: inherit
+  font-weight: inherit
+
+::-moz-placeholder 
+  color: inherit
+  font-style: inherit
+  font-weight: inherit
+
+:-ms-input-placeholder 
+  color: inherit
+  font-style: inherit
+  font-weight: inherit
+
+
 
 
 // LINKS
@@ -148,6 +179,7 @@ img
   li
     display: inline-block
     margin: 0 ( $margin-small / 2 )
+    
 
 // POSTS LOOP
 #posts

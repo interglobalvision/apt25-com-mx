@@ -837,6 +837,36 @@ em strong {
   font-style: normal;
   font-weight: 600;
 }
+input {
+  min-height: 0;
+  width: 80px;
+  -webkit-transition: width 1s;
+          transition: width 1s;
+}
+input:focus {
+  outline: none;
+  width: 200px;
+}
+::-webkit-input-placeholder {
+  color: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+:-moz-placeholder {
+  color: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+::-moz-placeholder {
+  color: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+:-ms-input-placeholder {
+  color: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
 a,
 a:active,
 a:visited {
