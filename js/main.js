@@ -7,7 +7,8 @@ function l(data) {
 }
 
 var 
-	menuItemWidth;
+	menuItemWidth,
+	svgHeight;
 
 jQuery(document).ready(function () {
   'use strict';
@@ -17,9 +18,8 @@ $('svg').load(function() {
 	$('.js-svg-container').each(function() {
 		menuItemWidth = $(this).children('a').width();
 		$(this).css( 'width' , menuItemWidth );
-		console.log(menuItemWidth);
-		$('.main-menu').css('visibility','visible');
 	});
+	$('.main-menu').css('visibility','visible');
 });
   
 });
