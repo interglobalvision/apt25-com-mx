@@ -293,46 +293,319 @@ input.email
   margin-bottom: 1em
   display: block
 
-/*
-// MEDIA QUERIES
 
+// MEDIA QUERIES
+/*
 @media screen and (min-width: 1700px)
   $cols = 12
   $col = 104px
   $gutter = 32px
-  .container
-    width: ($col * $cols)+($gutter * $cols)
-  .col
-    margin-left: ($gutter/2)
-    margin-right: ($gutter/2)
-  for col in 1..$cols
-    .col{col}
-      width: ( col * $col ) + ( ( col - 1 ) * $gutter )
+*/
 
+
+@media screen and (max-width: $container)
+  $gutter = 28px
+  $container = 900px
+  
+  .container-medium
+    width: $container*.9
+  .container-small
+    width: $container*.8
+  .col
+    padding: 0 ($gutter/2)
+  for pcol in 1..$pcols
+    .into-{pcol}
+      width: ( 100% / pcol )
+      
+  // HEADER
+
+  #header
+    margin: $margin-small 0
+
+  .logo
+    height: $margin-large
+    
+  .main-menu
+    font-size: $font-size-basic
+
+  .menu-item
+    margin: 0 ( $margin-small / 2 )
+
+  // POSTS LOOP
+
+  article
+    margin: 0 0 $margin-large
+
+  .single-post-details
+    padding-left: $margin-basic
+
+  .type-post-content
+    p
+      width: ( $container * 0.80 )
+      padding: 0 ( $gutter / 2 )
+
+  .gallery-item
+    margin-bottom: $margin-large
+
+  #pagination
+    margin-bottom: $margin-basic
+    svg
+      width: ( $margin-basic * 2 )
+
+  // FOOTER
+
+  #footer
+    font-size: $font-size-basic
+    padding: $margin-small 0
+
+  .footer-social
+    font-size: $font-size-medium
+    
+@media screen and (max-width: 900px)
+  $gutter = 21px
+  $container = 100%
+
+  .container-medium
+    width: $container*.9
+  .container-small
+    width: $container*.9
+  .col
+    padding: 0 ($gutter/2)
+  for pcol in 1..$pcols
+    .into-{pcol}
+      width: ( 100% / pcol )
+      
   // VARIABLES
 
   $margin-small = ($gutter)
   $margin-basic = ($gutter*2)
   $margin-large = ($gutter*5)
 
-  $font-size-small = 21px
-  $font-size-basic = 24px
-  $font-size-medium = 28px
-  $font-size-header = 36px
-
+  $font-size-small = 14px
+  $font-size-basic = 16px
+  $font-size-medium = 24px
+  $font-size-header = 30px
+  
+  // TYPOGRAPHY
+    
   body
     font-size: $font-size-basic
-
-  // HEADER
-  #header
-    padding: $margin-small
+  h1
+    font-size: $font-size-header
+  h2
+    font-size: $font-size-medium
+  h3
     font-size: $font-size-basic
+  .date
+    font-size: $font-size-small
+      
+  // HEADER
 
+  #header
+    margin: $margin-small 0
+
+  .logo
+    height: $margin-large
+    
   .main-menu
-    li
-      margin: 0 $margin-small
+    font-size: $font-size-basic
+    
+  .menu-item
+    margin: 0 ( $margin-small / 2 ) $margin-small
+    display: block
+    text-align: right
+    
 
-@media screen and (max-width: ($col * $cols)+($gutter * $cols))
-  html
-    width: 100%
-    */
+  // POSTS LOOP
+
+  article
+    margin: 0 0 $margin-large
+
+  .single-post-details
+    padding-left: 0
+
+  .type-post-content
+    p
+      width: 100%
+      padding: 0
+
+  .gallery-item
+    margin-bottom: $margin-large
+
+  #pagination
+    margin-bottom: $margin-basic
+    svg
+      width: ( $margin-basic * 2 )
+
+  // FOOTER
+
+  #footer
+    font-size: $font-size-basic
+    padding: $margin-small 0
+
+  .footer-social
+    font-size: $font-size-medium
+    
+@media screen and (max-width: 700px)
+  $gutter = 18px
+  
+  .col
+    padding: 0 ($gutter/2)
+  for pcol in 1..$pcols
+    .into-{pcol}
+      width: ( 100% / pcol )
+      
+  // VARIABLES
+
+  $margin-small = ($gutter)
+  $margin-basic = ($gutter*2)
+  $margin-large = ($gutter*5)
+
+  $font-size-small = 14px
+  $font-size-basic = 16px
+  $font-size-medium = 18px
+  $font-size-header = 21px
+  
+  // TYPOGRAPHY
+    
+  body
+    font-size: $font-size-basic
+  h1
+    font-size: $font-size-header
+  h2
+    font-size: $font-size-medium
+  h3
+    font-size: $font-size-basic
+  .date
+    font-size: $font-size-small
+      
+  // HEADER
+
+  #header
+    margin: $margin-small 0
+
+  .logo
+    height: $margin-large
+    
+  .main-menu
+    font-size: $font-size-basic
+    
+  .menu-item
+    margin: 0 ( $margin-small / 2 ) $margin-small
+    display: block
+    text-align: right
+    
+  // POSTS LOOP
+
+  article
+    margin: 0 0 $margin-basic
+
+  .gallery-item
+    margin-bottom: $margin-large
+
+  #pagination
+    margin-bottom: $margin-basic
+    svg
+      width: ( $margin-basic * 2 )
+
+  // FOOTER
+
+  #footer
+    font-size: $font-size-basic
+    padding: $margin-small 0
+      
+  .col 
+    margin-bottom: 1em
+
+  .footer-social
+    font-size: $font-size-medium
+    
+@media screen and (max-width: 500px)
+  $gutter = 18px
+  $container = 100%
+
+  .container-medium
+    width: $container
+  .container-small
+    width: $container
+  .col
+    padding: 0 ($gutter/2)
+  for pcol in 1..$pcols
+    .into-{pcol}
+      width: 100%
+      
+  // VARIABLES
+
+  $margin-small = ($gutter)
+  $margin-basic = ($gutter*2)
+  $margin-large = ($gutter*5)
+
+  $font-size-small = 12px
+  $font-size-basic = 14px
+  $font-size-medium = 16px
+  $font-size-header = 18px
+  
+  // TYPOGRAPHY
+    
+  body
+    font-size: $font-size-basic
+  h1
+    font-size: $font-size-header
+  h2
+    font-size: $font-size-medium
+  h3
+    font-size: $font-size-basic
+  .date
+    font-size: $font-size-small
+    
+  //FORM
+    
+  .expand
+    input
+      width: 50px
+      &:focus
+        width: 100px
+      
+  // HEADER
+
+  #header
+    margin: $margin-small 0
+    .into-2
+      width: 50%
+
+  .logo
+    height: $margin-large
+    
+  .main-menu
+    font-size: $font-size-basic
+    
+  .menu-item
+    margin: 0 ( $margin-small / 2 ) $margin-small
+    display: block
+    text-align: right
+    
+  // POSTS LOOP
+
+  article
+    margin: 0 0 $margin-basic
+
+  .gallery-item
+    margin-bottom: $margin-large
+
+  #pagination
+    margin-bottom: $margin-basic
+    svg
+      width: ( $margin-basic * 2 )
+
+  // FOOTER
+
+  #footer
+    font-size: $font-size-basic
+    padding: $margin-small 0
+      
+  .col 
+    margin-bottom: 1em
+
+  .footer-social
+    font-size: $font-size-medium
+

@@ -1012,45 +1012,370 @@ input.email {
   display: block;
 }
 /*
-// MEDIA QUERIES
-
 @media screen and (min-width: 1700px)
   $cols = 12
   $col = 104px
   $gutter = 32px
-  .container
-    width: ($col * $cols)+($gutter * $cols)
-  .col
-    margin-left: ($gutter/2)
-    margin-right: ($gutter/2)
-  for col in 1..$cols
-    .col{col}
-      width: ( col * $col ) + ( ( col - 1 ) * $gutter )
-
-  // VARIABLES
-
-  $margin-small = ($gutter)
-  $margin-basic = ($gutter*2)
-  $margin-large = ($gutter*5)
-
-  $font-size-small = 21px
-  $font-size-basic = 24px
-  $font-size-medium = 28px
-  $font-size-header = 36px
-
-  body
-    font-size: $font-size-basic
-
-  // HEADER
-  #header
-    padding: $margin-small
-    font-size: $font-size-basic
-
-  .main-menu
-    li
-      margin: 0 $margin-small
-
-@media screen and (max-width: ($col * $cols)+($gutter * $cols))
-  html
-    width: 100%
-    */
+*/
+@media screen and (max-width: 1200px) {
+  .container-medium {
+    width: 810px;
+  }
+  .container-small {
+    width: 720px;
+  }
+  .col {
+    padding: 0 14px;
+  }
+  .into-1 {
+    width: 100%;
+  }
+  .into-2 {
+    width: 50%;
+  }
+  .into-3 {
+    width: 33.333333333333336%;
+  }
+  .into-4 {
+    width: 25%;
+  }
+  .into-5 {
+    width: 20%;
+  }
+  .into-6 {
+    width: 16.666666666666668%;
+  }
+  .into-7 {
+    width: 14.285714285714286%;
+  }
+  .into-8 {
+    width: 12.5%;
+  }
+  .into-9 {
+    width: 11.11111111111111%;
+  }
+  .into-10 {
+    width: 10%;
+  }
+  #header {
+    margin: 28px 0;
+  }
+  .logo {
+    height: 140px;
+  }
+  .main-menu {
+    font-size: 21px;
+  }
+  .menu-item {
+    margin: 0 14px;
+  }
+  article {
+    margin: 0 0 140px;
+  }
+  .single-post-details {
+    padding-left: 56px;
+  }
+  .type-post-content p {
+    width: 720px;
+    padding: 0 14px;
+  }
+  .gallery-item {
+    margin-bottom: 140px;
+  }
+  #pagination {
+    margin-bottom: 56px;
+  }
+  #pagination svg {
+    width: 112px;
+  }
+  #footer {
+    font-size: 21px;
+    padding: 28px 0;
+  }
+  .footer-social {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container-medium {
+    width: 90%;
+  }
+  .container-small {
+    width: 90%;
+  }
+  .col {
+    padding: 0 10.5px;
+  }
+  .into-1 {
+    width: 100%;
+  }
+  .into-2 {
+    width: 50%;
+  }
+  .into-3 {
+    width: 33.333333333333336%;
+  }
+  .into-4 {
+    width: 25%;
+  }
+  .into-5 {
+    width: 20%;
+  }
+  .into-6 {
+    width: 16.666666666666668%;
+  }
+  .into-7 {
+    width: 14.285714285714286%;
+  }
+  .into-8 {
+    width: 12.5%;
+  }
+  .into-9 {
+    width: 11.11111111111111%;
+  }
+  .into-10 {
+    width: 10%;
+  }
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  .date {
+    font-size: 14px;
+  }
+  #header {
+    margin: 21px 0;
+  }
+  .logo {
+    height: 105px;
+  }
+  .main-menu {
+    font-size: 16px;
+  }
+  .menu-item {
+    margin: 0 10.5px 21px;
+    display: block;
+    text-align: right;
+  }
+  article {
+    margin: 0 0 105px;
+  }
+  .single-post-details {
+    padding-left: 0;
+  }
+  .type-post-content p {
+    width: 100%;
+    padding: 0;
+  }
+  .gallery-item {
+    margin-bottom: 105px;
+  }
+  #pagination {
+    margin-bottom: 42px;
+  }
+  #pagination svg {
+    width: 84px;
+  }
+  #footer {
+    font-size: 16px;
+    padding: 21px 0;
+  }
+  .footer-social {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .col {
+    padding: 0 9px;
+  }
+  .into-1 {
+    width: 100%;
+  }
+  .into-2 {
+    width: 50%;
+  }
+  .into-3 {
+    width: 33.333333333333336%;
+  }
+  .into-4 {
+    width: 25%;
+  }
+  .into-5 {
+    width: 20%;
+  }
+  .into-6 {
+    width: 16.666666666666668%;
+  }
+  .into-7 {
+    width: 14.285714285714286%;
+  }
+  .into-8 {
+    width: 12.5%;
+  }
+  .into-9 {
+    width: 11.11111111111111%;
+  }
+  .into-10 {
+    width: 10%;
+  }
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 21px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  .date {
+    font-size: 14px;
+  }
+  #header {
+    margin: 18px 0;
+  }
+  .logo {
+    height: 90px;
+  }
+  .main-menu {
+    font-size: 16px;
+  }
+  .menu-item {
+    margin: 0 9px 18px;
+    display: block;
+    text-align: right;
+  }
+  article {
+    margin: 0 0 36px;
+  }
+  .gallery-item {
+    margin-bottom: 90px;
+  }
+  #pagination {
+    margin-bottom: 36px;
+  }
+  #pagination svg {
+    width: 72px;
+  }
+  #footer {
+    font-size: 16px;
+    padding: 18px 0;
+  }
+  .col {
+    margin-bottom: 1em;
+  }
+  .footer-social {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .container-medium {
+    width: 100%;
+  }
+  .container-small {
+    width: 100%;
+  }
+  .col {
+    padding: 0 9px;
+  }
+  .into-1 {
+    width: 100%;
+  }
+  .into-2 {
+    width: 100%;
+  }
+  .into-3 {
+    width: 100%;
+  }
+  .into-4 {
+    width: 100%;
+  }
+  .into-5 {
+    width: 100%;
+  }
+  .into-6 {
+    width: 100%;
+  }
+  .into-7 {
+    width: 100%;
+  }
+  .into-8 {
+    width: 100%;
+  }
+  .into-9 {
+    width: 100%;
+  }
+  .into-10 {
+    width: 100%;
+  }
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 14px;
+  }
+  .date {
+    font-size: 12px;
+  }
+  .expand input {
+    width: 50px;
+  }
+  .expand input:focus {
+    width: 100px;
+  }
+  #header {
+    margin: 18px 0;
+  }
+  #header .into-2 {
+    width: 50%;
+  }
+  .logo {
+    height: 90px;
+  }
+  .main-menu {
+    font-size: 14px;
+  }
+  .menu-item {
+    margin: 0 9px 18px;
+    display: block;
+    text-align: right;
+  }
+  article {
+    margin: 0 0 36px;
+  }
+  .gallery-item {
+    margin-bottom: 90px;
+  }
+  #pagination {
+    margin-bottom: 36px;
+  }
+  #pagination svg {
+    width: 72px;
+  }
+  #footer {
+    font-size: 14px;
+    padding: 18px 0;
+  }
+  .col {
+    margin-bottom: 1em;
+  }
+  .footer-social {
+    font-size: 16px;
+  }
+}
