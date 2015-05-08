@@ -839,11 +839,13 @@ em strong {
 }
 input {
   min-height: 0;
+}
+input.expand {
   width: 80px;
   -webkit-transition: width 1s;
           transition: width 1s;
 }
-input:focus {
+input.expand:focus {
   outline: none;
   width: 200px;
 }
@@ -987,6 +989,14 @@ h1.article-title {
 .footer-social {
   text-align: right;
   font-size: 30px;
+}
+input.email {
+  font-weight: 300;
+  font-style: normal;
+}
+.contact-email {
+  margin-bottom: 1em;
+  display: block;
 }
 /*
 // MEDIA QUERIES
