@@ -15,9 +15,12 @@ if (! empty($shop_url)) {
       <a href="<?php echo get_bloginfo('url') . '/archive/'; ?>">Archive</a>
       <?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/squiggle.svg' ); ?>
     </li>
-    <li class="menu-item">
+    <li class="menu-item js-svg-container">
       <form action="/" method="get" class="u-bold-cn">
-        <input type="text" name="s" class="u-bold-cn expand" id="search" placeholder="SEARCH" svalue="<?php the_search_query(); ?>" />
+        <div class="expand">
+          <input type="text" name="s" class="u-bold-cn expand" id="search" placeholder="SEARCH" svalue="<?php the_search_query(); ?>" />
+          <?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/zigzag.svg' ); ?>
+        </div>
       </form>
     </li>
   </ul>
