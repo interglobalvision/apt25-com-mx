@@ -107,15 +107,21 @@ strong em, em strong
 
 //FORM
 
+form 
+  position: relative
+
 input
   min-height: 0
-
-input.expand
-  width: 80px
-  transition: width 1s
-  &:focus
-    outline: none
-    width: 200px
+  
+.expand
+  display: inline-block
+  position: relative
+  input
+    width: 80px
+    transition: width 1s
+    &:focus
+      outline: none
+      width: 200px
     
 ::-webkit-input-placeholder 
   color: inherit
@@ -136,6 +142,9 @@ input.expand
   color: inherit
   font-style: inherit
   font-weight: inherit
+  
+.zigzag
+  stroke-width: 1.5px 
 
 
 
@@ -155,6 +164,12 @@ html
 img
   width: 100%
   height: auto
+  
+svg.underline
+  width: 100%; 
+  position: absolute;
+  left: 0;
+  bottom: -10px;
 
 
 //the 100% widths are just so stylus can compile delete as desired
@@ -184,11 +199,7 @@ img
   display: inline-block
   position: relative
   margin: 0 ( $margin-small / 2 )
-  svg
-    width: 100%; 
-    position: absolute;
-    left: 0;
-    bottom: -10px;
+
 
 
 // POSTS LOOP

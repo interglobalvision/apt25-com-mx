@@ -837,15 +837,22 @@ em strong {
   font-style: normal;
   font-weight: 600;
 }
+form {
+  position: relative;
+}
 input {
   min-height: 0;
 }
-input.expand {
+.expand {
+  display: inline-block;
+  position: relative;
+}
+.expand input {
   width: 80px;
   -webkit-transition: width 1s;
           transition: width 1s;
 }
-input.expand:focus {
+.expand input:focus {
   outline: none;
   width: 200px;
 }
@@ -869,6 +876,9 @@ input.expand:focus {
   font-style: inherit;
   font-weight: inherit;
 }
+.zigzag {
+  stroke-width: 1.5px;
+}
 a,
 a:active,
 a:visited {
@@ -881,6 +891,12 @@ html {
 img {
   width: 100%;
   height: auto;
+}
+svg.underline {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
 }
 #header {
   width: 100%;
@@ -906,12 +922,6 @@ img {
   display: inline-block;
   position: relative;
   margin: 0 14px;
-}
-.menu-item svg {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: -10px;
 }
 #posts {
   width: 100%;
