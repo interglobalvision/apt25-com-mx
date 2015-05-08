@@ -14,12 +14,21 @@ jQuery(document).ready(function () {
   'use strict';
   l('Hola Globie');
 
-$('svg').load(function() {
-	$('.js-svg-container').each(function() {
-		menuItemWidth = $(this).children('a').width();
-		$(this).css( 'width' , menuItemWidth );
+	$('.expand input').on({
+		focusin: function(){
+			$(this).siblings('svg').find('.zigzag').attr('class', 'zigzag small-stroke');
+		},
+		focusout: function() {
+			$(this).siblings('svg').find('.zigzag').attr('class', 'zigzag');
+		}
 	});
-	$('.main-menu').css('visibility','visible');
-});
+
+	$('svg').load(function() {
+		$('.js-svg-container').each(function() {
+			menuItemWidth = $(this).children('a').width();
+			$(this).css( 'width' , menuItemWidth );
+		});
+		$('.main-menu').css('visibility','visible');
+	});
   
 });
