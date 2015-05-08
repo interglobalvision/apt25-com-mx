@@ -17,7 +17,7 @@ if (! empty($shop_url)) {
     </li>
     <li class="menu-item">
       <form action="/" method="get" class="u-bold-cn">
-        <input type="text" name="s" class="u-bold-cn" id="search" placeholder="SEARCH" svalue="<?php the_search_query(); ?>" />
+        <input type="text" name="s" class="u-bold-cn expand" id="search" placeholder="SEARCH" svalue="<?php the_search_query(); ?>" />
       </form>
     </li>
   </ul>
