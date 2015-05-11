@@ -1,7 +1,5 @@
 <?php
 $post_type = get_post_type( $entry_id );
-// >> if you use setup_postdata() in here you can use normal the_title() type tags
-
 ?>
   <a href="<?php echo get_the_permalink( $entry_id ) ?>"><?php echo get_the_post_thumbnail( $entry_id, 'feed-small', 'class=archive-entry-img' ); ?></a>
   <h2>
