@@ -47,7 +47,10 @@ $num_posts = 12;
     global $query_string;
 
     $query_args = explode("&", $query_string);
-    $args = array();
+    $args = array(
+      'posts_per_page' => $num_posts,
+      'post_type' => array('post','lookbook','product'),
+    );
 
     foreach($query_args as $key => $string) {
       $query_split = explode("=", $string);
@@ -89,10 +92,20 @@ $num_posts = 12;
 <?php
   } else {
 ?>
-    <article class="u-alert">
-    <div class="container container-small">
-      <?php _e('Sorry, no posts matched your criteria :{'); ?>
-    </div>
+    <article>
+      <div class="container container-large">
+        <div class="row">
+          <div class="col into-1">
+            <?php 
+            if (is_search()) {
+              echo 'Sorry, no posts matched your search for<em> ' . get_search_query() . '</em>.';
+            } else {
+              echo 'Sorry, no posts matched your criteria.';
+            }
+            ?>
+          </div>
+        </div>
+      </div>
     </article>
 <?php
   }
