@@ -932,6 +932,9 @@ svg.underline {
 article {
   margin: 0 0 140px;
 }
+article.archive-entry {
+  margin-bottom: 56px;
+}
 h1.article-title {
   margin-bottom: 0.5em;
 }

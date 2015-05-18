@@ -59,7 +59,7 @@ $num_posts = 12;
       setup_postdata( $post );
       $entry_id = $post->ID;
 ?>
-      <article class="col into-3">
+      <article class="col into-3 archive-entry">
         <?php set_query_var( 'entry_id', $entry_id ); get_template_part( 'archive', 'entry' ); ?>   
       </article>
 <?php
