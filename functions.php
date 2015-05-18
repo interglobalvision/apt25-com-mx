@@ -62,6 +62,18 @@ function cmb_initialize_cmb_meta_boxes() {
   }
 }
 
+// Customize search
+function custom_search($query) {
+  if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
+
+    add_filter( 'template_include', function() {
+      return locate_template( 'archive.php' );
+    }, 0 );
+
+  }
+}
+add_filter('pre_get_posts','custom_search');
+
 // Disable that freaking admin bar
 add_filter('show_admin_bar', '__return_false');
 
