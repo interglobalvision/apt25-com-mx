@@ -43,6 +43,16 @@ $num_posts = 12;
         ),
       ),
     );
+  } else if (is_search()) {
+    global $query_string;
+
+    $query_args = explode("&", $query_string);
+    $args = array();
+
+    foreach($query_args as $key => $string) {
+      $query_split = explode("=", $string);
+      $args[$query_split[0]] = urldecode($query_split[1]);
+    }
   } else {
     $post_type = get_post_type();
     $args = array(
@@ -53,6 +63,15 @@ $num_posts = 12;
   $posts = get_posts( $args );
   if (! empty($posts)) { ?>
     <div class="container container-large">
+<?php 
+    if (is_search()) { 
+?>
+      <div class="row">
+        <div class="col into-1">
+          <h3>Results for: <em><?php echo get_search_query(); ?></em></h3>
+        </div>
+      </div>
+<?php } ?>
       <div class="row">
 <?php
     foreach ($posts as $post) {
