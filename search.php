@@ -24,6 +24,11 @@ $posts = get_posts( $search_query );
 if (! empty($posts)) { ?>
     <div class="container container-large">
       <div class="row">
+        <div class="col into-1">
+          <h3>Results for: <em><?php echo get_search_query(); ?></em></h3>
+        </div>
+      </div>
+      <div class="row">
 <?php
     foreach ($posts as $post) {
       setup_postdata( $post );
