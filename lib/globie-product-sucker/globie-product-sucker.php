@@ -167,7 +167,7 @@ class Globie_Product_Sucker {
     if( !get_option( 'gpsucker_settings_post_types' ) ) {
       // Enable Product field on "posts" post type
       update_option( 'gpsucker_settings_post_types', array(
-        0 => 'post'
+        0 => 'product'
       ) );
     }
     //delete_option( 'gpsucker_settings_post_types' );
@@ -199,7 +199,7 @@ class Globie_Product_Sucker {
     // Add base_url section
     add_settings_section(
       'gpsucker_base_url_section',
-      __( 'Store base URL', 'wordpress' ),
+      __( 'Store API base URL', 'wordpress' ),
       array( $this, 'settings_base_url_section_callback' ),
       'gpsucker_options_page'
     );
@@ -255,7 +255,7 @@ class Globie_Product_Sucker {
   }
 
   public function settings_base_url_section_callback() {
-    echo __( 'Ex.  url', 'wordpress' );
+    echo __( 'Ex. <i>http://www.apt25.com.mx/store/index.php?route=api/product/get&id=</i>', 'wordpress' );
   }
 
   public function options_page() {
