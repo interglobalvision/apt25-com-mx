@@ -11,25 +11,11 @@
 
 class Globie_Product_Sucker {
   public function __construct() {
-    register_activation_hook( __FILE__, array( $this, 'after_activation' ) );
     add_action('admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
     add_action( 'add_meta_boxes', array( $this, 'add_product_field' ) );
     add_action( 'save_post', array( $this, 'save_product_id' ) );
     add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
     add_action( 'admin_init', array( $this, 'settings_init' ) );
-  }
-
-  public function after_activation() {
-    
-    // Check if previous settings aren't stored
-    if( !get_option( 'gpsucker_settings_post_types' ) ) {
-      // Enable Product field on "posts" post type
-      update_option( 'gpsucker_settings_post_types', array(
-        0 => 'post'
-      ) );
-    }
-    //delete_option( 'gpsucker_settings_post_types' );
-    //delete_option( 'gpsucker_settings_base_url' );
   }
 
   /** 
@@ -176,6 +162,17 @@ class Globie_Product_Sucker {
 
   // Register settings, sections and fields
   public function settings_init() {
+
+    // Check if previous settings aren't stored
+    if( !get_option( 'gpsucker_settings_post_types' ) ) {
+      // Enable Product field on "posts" post type
+      update_option( 'gpsucker_settings_post_types', array(
+        0 => 'post'
+      ) );
+    }
+    //delete_option( 'gpsucker_settings_post_types' );
+    //delete_option( 'gpsucker_settings_base_url' );
+    
     // Register option: post types
     register_setting( 'gpsucker_options_page', 'gpsucker_settings_post_types' );
 
