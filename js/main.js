@@ -8,7 +8,8 @@ function l(data) {
 
 var 
 	menuItemWidth,
-	svgHeight;
+	svgHeight,
+	$underline;
 
 jQuery(document).ready(function () {
   'use strict';
@@ -29,6 +30,15 @@ jQuery(document).ready(function () {
 			$(this).css( 'width' , menuItemWidth );
 		});
 		$('.main-menu').css('visibility','visible');
+	});
+
+	$('.menu-item-archive').on({
+		mouseenter: function() {
+			$(this).siblings('svg').attr('class', 'underline flip');
+		},
+		mouseleave: function() {
+			$(this).siblings('svg').attr('class', 'underline');
+		}
 	});
   
 });
