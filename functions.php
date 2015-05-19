@@ -62,6 +62,14 @@ function cmb_initialize_cmb_meta_boxes() {
   }
 }
 
+
+add_action( 'init', 'initialize_globie_product_sucker', 9999 );
+function initialize_globie_product_sucker() {
+  if( ! class_exists( 'Globie_Product_Sucker' ) ) {
+    require_once( 'lib/globie-product-sucker/globie-product-sucker.php' );
+  }
+}
+
 // Customize search
 function custom_search($query) {
   if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
