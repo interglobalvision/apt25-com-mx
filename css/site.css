@@ -927,8 +927,8 @@ svg.underline {
   margin: 0 14px;
 }
 .menu-item-shop:hover {
-  -webkit-animation: blink 300ms infinite;
-          animation: blink 300ms infinite;
+  -webkit-animation: blinky 300ms infinite;
+          animation: blinky 300ms infinite;
 }
 .flip {
   -webkit-animation: flip 400ms infinite linear;
@@ -1392,7 +1392,7 @@ input.email {
     font-size: 16px;
   }
 }
-@-webkit-keyframes blink {
+@-webkit-keyframes blinky {
   0% {
     color: #ff9735;
   }
@@ -1406,7 +1406,7 @@ input.email {
     color: #ff9735;
   }
 }
-@keyframes blink {
+@keyframes blinky {
   0% {
     color: #ff9735;
   }
