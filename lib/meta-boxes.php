@@ -102,5 +102,21 @@ function igv_cmb_metaboxes() {
 		'type'       => 'text',
 	) );
 
+	$products_metabox = new_cmb2_box( array(
+		'id'            => $prefix . 'products',
+		'title'         => __( 'Product info', 'cmb2' ),
+		'object_types'  => array( 'product', ), 
+		'context'       => 'normal',
+		'priority'      => 'low',
+		'show_names'    => true, 
+	) );
+
+	$products_metabox->add_field( array(
+		'name' => __( 'Brand', 'cmb2' ),
+		'desc' => __( '', 'cmb2' ),
+		'id'   => $prefix . 'product_brand',
+		'type' => 'text',
+	) );
+
 }
 ?>
