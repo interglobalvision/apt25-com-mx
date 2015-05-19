@@ -930,6 +930,12 @@ svg.underline {
   -webkit-animation: blink 300ms infinite;
           animation: blink 300ms infinite;
 }
+.flip {
+  -webkit-animation: flip 400ms infinite linear;
+          animation: flip 400ms infinite linear;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
 #posts {
   width: 100%;
 }
@@ -1412,5 +1418,25 @@ input.email {
   }
   100% {
     color: #ff9735;
+  }
+}
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+@keyframes flip {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
   }
 }

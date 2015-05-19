@@ -216,6 +216,15 @@ $color-yellow = rgb(255,255,51)
   100% { color: $color-pink; }
 }
 
+.flip
+  animation: flip 400ms infinite linear;
+  transform-style: preserve-3d;
+  
+@keyframes flip {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(360deg); }
+}
+
 
 
 // POSTS LOOP
