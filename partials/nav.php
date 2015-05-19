@@ -12,7 +12,7 @@ if (! empty($shop_url)) {
 }
 ?>
     <li class="menu-item js-svg-container">
-      <a href="<?php echo get_bloginfo('url') . '/archive/'; ?>">Archive</a>
+      <a href="<?php echo get_bloginfo('url') . '/archive/'; ?>" class="menu-item-archive">Archive</a>
       <?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/squiggle.svg' ); ?>
     </li>
     <li class="menu-item js-svg-container">
