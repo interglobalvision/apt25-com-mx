@@ -926,6 +926,10 @@ svg.underline {
   position: relative;
   margin: 0 14px;
 }
+.menu-item-shop:hover {
+  -webkit-animation: blink 300ms infinite;
+          animation: blink 300ms infinite;
+}
 #posts {
   width: 100%;
 }
@@ -1380,5 +1384,33 @@ input.email {
   }
   .footer-social {
     font-size: 16px;
+  }
+}
+@-webkit-keyframes blink {
+  0% {
+    color: #ff9735;
+  }
+  33% {
+    color: #3398ff;
+  }
+  66% {
+    color: #ff3;
+  }
+  100% {
+    color: #ff9735;
+  }
+}
+@keyframes blink {
+  0% {
+    color: #ff9735;
+  }
+  33% {
+    color: #3398ff;
+  }
+  66% {
+    color: #ff3;
+  }
+  100% {
+    color: #ff9735;
   }
 }
