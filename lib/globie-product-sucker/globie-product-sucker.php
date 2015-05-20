@@ -107,6 +107,9 @@ class Globie_Product_Sucker {
     // Sanitize product ID input
     $product_id = sanitize_text_field( $_POST['gpsucker-url-field'] );
 
+    // Update the product URL in the database.
+    update_post_meta( $post_id, '_product_shop_url', $_POST['gpsucker-url-field'] );
+
     // Update the product ID field in the database.
     update_post_meta( $post_id, '_product_id_value', $product_id );
 
