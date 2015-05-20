@@ -64,13 +64,13 @@ if ( $post_type == 'post' ) {
 <?php
 } else if ( $post_type == 'product') {
   $product_brand = get_post_meta( $post->ID, '_igv_product_brand', true );
-  $product_url = get_option( 'gpsucker_settings_base_url' );
-  $product_title = get_the_title();
+  $product_url = get_post_meta( $post->ID, '_product_shop_url', true );
+  $product_title = ucwords(strtolower(get_the_title()));
 ?>
       <div class="container container-medium">
         <div class="row">
           <div class="col into-1">
-            <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-large' ); ?></a>
+            <a href="<?php echo $product_url; ?>"><?php the_post_thumbnail( 'feed-large' ); ?></a>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ if ( $post_type == 'post' ) {
         <div class="row">
           <div class="col into-2">
             <h2>
-              <a href="<?php echo $product_url; ?>"><?php echo ucwords(strtolower($product_title)); ?></a>
+              <a href="<?php echo $product_url; ?>"><?php echo $product_title; ?></a>
             </h2>
             <span class="date"><?php echo $product_brand; ?></span>
           </div>
