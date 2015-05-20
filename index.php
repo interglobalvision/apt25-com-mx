@@ -15,6 +15,7 @@ if( have_posts() ) {
     the_post();
     $post_type = get_post_type();
     $excerpt = get_the_excerpt();
+    $dash = '&nbsp;&nbsp;&mdash;&nbsp;&nbsp;';
 ?>
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -33,7 +34,7 @@ if ( $post_type == 'post' ) {
             <h2>
               <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
             </h2>
-            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_bloginfo( 'url' ) . '/posts/'; ?>"><span class="fa fa-thumb-tack"></span></a></p>
+            <p><?php echo $excerpt . $dash; ?><a href="<?php echo get_bloginfo( 'url' ) . '/posts/'; ?>"><span class="fa fa-thumb-tack"></span></a></p>
           </div>
         </div>
       </div>
@@ -56,32 +57,33 @@ if ( $post_type == 'post' ) {
             <span class="date"><?php echo get_the_date(); ?></span>
           </div>
           <div class="col into-2">
-            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
+            <p><?php echo $excerpt . $dash; ?><a href="<?php echo get_post_type_archive_link( 'lookbook' ); ?>"><span class="fa fa-eye"></span></a></p>
           </div>
         </div>
       </div>
 <?php
 } else if ( $post_type == 'product') {
+  $product_brand = get_post_meta( $post->ID, '_igv_product_brand', true );
+  $product_url = get_option( 'gpsucker_settings_base_url' );
+  $product_title = get_the_title();
 ?>
       <div class="container container-medium">
-        <a href="<?php // LINK TO PRODUCT ?>">
-          <div class="row">
-            <div class="col into-2">
-              <!-- PRODUCT IMAGE 1 -->
-            </div>
-            <div class="col into-2">
-              <!-- PRODUCT IMAGE 2 -->
-            </div>
+        <div class="row">
+          <div class="col into-1">
+            <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'feed-large' ); ?></a>
           </div>
-        </a>
+        </div>
       </div>
       <div class="container container-small">
         <div class="row">
           <div class="col into-2">
-            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+            <h2>
+              <a href="<?php echo $product_url; ?>"><?php echo ucwords(strtolower($product_title)); ?></a>
+            </h2>
+            <span class="date"><?php echo $product_brand; ?></span>
           </div>
           <div class="col into-2">
-            <p><?php echo $excerpt; ?>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<a href="<?php echo get_post_type_archive_link( 'product' ); ?>"><span class="fa fa-shopping-cart"></span></a></p>
+            <p><?php echo $excerpt . $dash; ?><a href="<?php echo get_post_type_archive_link( 'product' ); ?>"><span class="fa fa-shopping-cart"></span></a></p>
           </div>
         </div>
       </div>
