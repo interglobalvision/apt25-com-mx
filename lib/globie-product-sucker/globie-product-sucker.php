@@ -66,9 +66,9 @@ class Globie_Product_Sucker {
      * Use get_post_meta() to retrieve an existing value
      * from the database and use the value for the form.
      */
-    $product_id_value = get_post_meta( $post->ID, '_product_id_value', true );
+    $product_shop_url = get_post_meta( $post->ID, '_product_shop_url', true );
 
-    echo '<input type="text" id="gpsucker-url-field" name="gpsucker-url-field" value="' . esc_attr( $product_id_value ) . '" size="25" />';
+    echo '<input type="text" id="gpsucker-url-field" name="gpsucker-url-field" value="' . esc_attr( $product_shop_url ) . '" size="25" />';
     echo '<input type="hidden" id="gpsucker-img-field" name="gpsucker-img-field" value="" />';
 
     echo ' <input type="submit" id="suck-product-data" value="Suck it!" class="button">';
@@ -99,19 +99,16 @@ class Globie_Product_Sucker {
 
     // OK, it's safe for us to save the data now.
 
-    // Make sure that product ID is set.
+    // Make sure that product URL is set.
     if ( ! isset( $_POST['gpsucker-url-field'] ) ) {
       return;
     }
 
-    // Sanitize product ID input
+    // Sanitize product URL input
     $product_id = sanitize_text_field( $_POST['gpsucker-url-field'] );
 
-    // Update the product URL in the database.
-    update_post_meta( $post_id, '_product_shop_url', $_POST['gpsucker-url-field'] );
-
-    // Update the product ID field in the database.
-    update_post_meta( $post_id, '_product_id_value', $product_id );
+    // Update the product URL field in the database.
+    update_post_meta( $post_id, '_product_shop_url', $product_id );
 
     // Make sure that thumb url is set.
     if ( ! isset( $_POST['gpsucker-img-field'] ) ) {
