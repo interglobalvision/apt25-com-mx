@@ -9,7 +9,10 @@ function l(data) {
 var 
 	menuItemWidth,
 	svgHeight,
-	$underline;
+	$underline,
+	headerHeight,
+	footerHeight,
+	windowHeight;
 
 jQuery(document).ready(function () {
   'use strict';
@@ -24,11 +27,15 @@ jQuery(document).ready(function () {
 		}
 	});
 
-	$('svg').load(function() {
+	function sizeUnderlines() {
 		$('.js-svg-container').each(function() {
 			menuItemWidth = $(this).children('a').width();
 			$(this).css( 'width' , menuItemWidth );
 		});
+	}
+
+	$('svg').load(function() {
+		sizeUnderlines();
 		$('.main-menu').css('visibility','visible');
 	});
 
@@ -39,6 +46,10 @@ jQuery(document).ready(function () {
 		mouseleave: function() {
 			$(this).siblings('svg').attr('class', 'underline');
 		}
+	});
+
+	$(window).on('resize', function() {
+		sizeUnderlines();
 	});
   
 });
