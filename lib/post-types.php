@@ -82,7 +82,7 @@ function register_cpt_product() {
         'labels' => $labels,
         'hierarchical' => false,
         
-        'supports' => array( 'title', 'thumbnail', 'excerpt'),
+        'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt'),
         
         'public' => true,
         'show_ui' => true,
