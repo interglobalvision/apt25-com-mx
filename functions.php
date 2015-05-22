@@ -143,6 +143,16 @@ function disable_for_cpt( $default ) {
   return $default;
 }
 
+// shorter excerpt length for custom post types (lookbook, product)
+function excerpt_length_post_type($length) {
+  global $post;
+  if ($post->post_type == 'post' )
+    return 55;
+  else
+    return 35;
+}
+add_filter('excerpt_length', 'excerpt_length_post_type');
+
 // custom login logo
 /*
 function custom_login_logo() {
