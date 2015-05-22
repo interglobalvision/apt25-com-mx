@@ -69,9 +69,14 @@ if ( $post_type == 'post' ) {
 ?>
       <div class="container container-medium">
         <div class="row">
-          <div class="col into-1">
-            <a href="<?php echo $product_url; ?>"><?php the_post_thumbnail( 'feed-large' ); ?></a>
-          </div>
+          <a href="<?php echo $product_url; ?>">
+            <div class="col into-2">
+              <?php the_post_thumbnail( 'feed-square' ); ?>
+            </div>
+            <div class="col into-2">
+              <?php the_post_thumbnail( 'feed-square' ); ?>
+            </div>
+          </a>
         </div>
       </div>
       <div class="container container-small">
