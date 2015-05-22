@@ -103,8 +103,12 @@ if ( $post_type == 'post' ) {
 } else {
 ?>
     <article class="u-alert">
-      <div class="container container-small">
-        <?php _e('Sorry, no posts matched your criteria :{'); ?>
+      <div class="container container-large">
+        <div class="row">
+          <div class="col into-1">
+            <?php _e('Sorry, no posts matched your criteria :{'); ?>
+          </div>
+        </div>
       </div>
     </article>
 <?php
