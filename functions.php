@@ -133,6 +133,16 @@ function my_get_posts( $query ) {
 }
 add_filter( 'pre_get_posts', 'my_get_posts' );
 
+
+// disable rich text editor for product
+add_filter( 'user_can_richedit', 'disable_for_cpt' );
+function disable_for_cpt( $default ) {
+  global $post;
+  if ( 'product' == get_post_type( $post ) )
+    return false;
+  return $default;
+}
+
 // custom login logo
 /*
 function custom_login_logo() {
