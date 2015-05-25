@@ -37,6 +37,10 @@ jQuery(document).ready(function () {
 
 	sizeUnderlines();
 
+	$('.menu-item svg').load(function() {
+		sizeUnderlines();
+	});
+
 	$('.menu-item-archive').on({
 		mouseenter: function() {
 			$(this).siblings('svg').attr('class', 'underline flip');
