@@ -5,7 +5,7 @@ $shop_url = IGV_get_option('_igv_shop_url');
 if (! empty($shop_url)) {
 ?>
     <li class="menu-item js-svg-container">
-      <a href="<?php echo $shop_url; ?>" class="menu-item-shop">Shop</a>
+      <a href="<?php echo $shop_url; ?>" class="menu-item-shop blinky">Shop</a>
       <?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/smile.svg' ); ?>
     </li>
 <?php 
