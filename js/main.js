@@ -32,12 +32,10 @@ jQuery(document).ready(function () {
 			menuItemWidth = $(this).children('a').width();
 			$(this).css( 'width' , menuItemWidth );
 		});
+		$('.main-menu').css('visibility','visible');
 	}
 
-	$('svg').load(function() {
-		sizeUnderlines();
-		$('.main-menu').css('visibility','visible');
-	});
+	sizeUnderlines();
 
 	$('.menu-item-archive').on({
 		mouseenter: function() {
