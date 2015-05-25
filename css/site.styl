@@ -202,18 +202,19 @@ svg.underline
   position: relative
   margin: 0 ( $margin-small / 2 )
 
-.menu-item-shop:hover
-  animation: blinky 300ms infinite;
-  
 $color-pink = rgb(255,151,53)
 $color-blue = rgb(51, 152, 255)
 $color-yellow = rgb(255,255,51)
+
+.blinky
+  &:hover
+    color: $color-blue
+    animation: blinky 300ms infinite linear
   
 @keyframes blinky {
   0% { color: $color-pink; }
   33% { color: $color-blue; }
   66% { color: $color-yellow; }
-  100% { color: $color-pink; }
 }
 
 .flip

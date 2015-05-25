@@ -926,9 +926,10 @@ svg.underline {
   position: relative;
   margin: 0 14px;
 }
-.menu-item-shop:hover {
-  -webkit-animation: blinky 300ms infinite;
-          animation: blinky 300ms infinite;
+.blinky:hover {
+  color: #3398ff;
+  -webkit-animation: blinky 300ms infinite linear;
+          animation: blinky 300ms infinite linear;
 }
 .flip {
   -webkit-animation: flip 400ms infinite linear;
@@ -1402,9 +1403,6 @@ input.email {
   66% {
     color: #ff3;
   }
-  100% {
-    color: #ff9735;
-  }
 }
 @keyframes blinky {
   0% {
@@ -1415,9 +1413,6 @@ input.email {
   }
   66% {
     color: #ff3;
-  }
-  100% {
-    color: #ff9735;
   }
 }
 @-webkit-keyframes flip {
