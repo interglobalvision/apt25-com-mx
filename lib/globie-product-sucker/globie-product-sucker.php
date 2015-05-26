@@ -293,7 +293,7 @@ class Globie_Product_Sucker {
   }
 
   public function settings_base_url_section_callback() {
-    echo __( 'Ex. <i>http://www.apt25.com.mx/store/index.php?route=api/product/get&id=</i>', 'wordpress' );
+    echo __( 'Ex. <i>http://apt25.com.mx/store/index.php?route=api/product/get&id=</i>', 'wordpress' );
   }
 
   public function options_page() {
