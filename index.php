@@ -78,7 +78,7 @@ if ( $post_type == 'post' ) {
               <?php the_post_thumbnail( 'feed-square' ); ?>
             </div>
             <div class="col into-2">
-              <?php echo $product_image[0]; ?>
+              <img src="<?php echo $product_image; ?>">
             </div>
 <?php 
   } else {
