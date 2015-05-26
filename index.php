@@ -66,16 +66,27 @@ if ( $post_type == 'post' ) {
   $product_brand = get_post_meta( $post->ID, '_igv_product_brand', true );
   $product_url = get_post_meta( $post->ID, '_product_shop_url', true );
   $product_title = ucwords(strtolower(get_the_title()));
+  $product_image = get_post_meta( $post->ID, '_igv_product_additional_image', true );
 ?>
       <div class="container container-medium">
         <div class="row">
           <a href="<?php echo $product_url; ?>">
+<?php 
+  if ($product_image) {
+?>
             <div class="col into-2">
               <?php the_post_thumbnail( 'feed-square' ); ?>
             </div>
             <div class="col into-2">
-              <?php the_post_thumbnail( 'feed-square' ); ?>
+              <?php echo $product_image[0]; ?>
             </div>
+<?php 
+  } else {
+?>
+            <div class="col into-1 u-align-center">
+              <?php the_post_thumbnail( 'feed-large', 'class=product-thumb' ); ?>
+            </div>
+<?php } ?>
           </a>
         </div>
       </div>
