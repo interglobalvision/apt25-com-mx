@@ -946,6 +946,11 @@ article {
 article.archive-entry {
   margin-bottom: 56px;
 }
+.product-thumb {
+  width: auto;
+  max-width: 800px;
+  max-height: 485px;
+}
 h1.article-title {
   margin-bottom: 0.5em;
 }
@@ -1025,12 +1030,6 @@ input.email {
   margin-bottom: 1em;
   display: block;
 }
-/*
-@media screen and (min-width: 1700px)
-  $cols = 12
-  $col = 104px
-  $gutter = 32px
-*/
 @media screen and (max-width: 1200px) {
   .container-medium {
     width: 810px;
@@ -1085,6 +1084,9 @@ input.email {
   }
   article {
     margin: 0 0 140px;
+  }
+  .product-thumb {
+    width: 100%;
   }
   .single-post-details {
     padding-left: 56px;
