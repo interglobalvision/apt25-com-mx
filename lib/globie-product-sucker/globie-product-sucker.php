@@ -13,7 +13,7 @@ class Globie_Product_Sucker {
   public function __construct() {
     add_action('admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
     add_action( 'add_meta_boxes', array( $this, 'add_product_field' ) );
-    add_action( 'save_post', array( $this, 'save_product_id' ) );
+    add_action( 'save_post', array( $this, 'save_product_id' ), 21);
     add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
     add_action( 'admin_init', array( $this, 'settings_init' ) );
   }
@@ -146,6 +146,44 @@ class Globie_Product_Sucker {
       //Set as featured image.
       delete_post_meta( $post_id, '_thumbnail_id' );
       add_post_meta( $post_id , '_thumbnail_id' , $attach_id, true );
+    }
+
+    // Make sure that additional image url is set.
+    if ( ! isset( $_POST['_igv_product_additional_image'] ) ) {
+      return;
+    }
+    // Sanitize user input
+    $product_additional_img = sanitize_text_field( $_POST['_igv_product_additional_image'] );
+    $upload_dir = wp_upload_dir();
+
+    //Get the remote image and save to uploads directory
+    $img_name = time().'_'.basename( $product_additional_img );
+    $img = wp_remote_get( $product_additional_img );
+    if ( is_wp_error( $img ) ) {
+      $error_message = $img->get_error_message();
+      add_action( 'admin_notices', array( $this, 'wprthumb_admin_notice' ) );
+    } else {
+      $img = wp_remote_retrieve_body( $img );
+      $fp = fopen( $upload_dir['path'].'/'.$img_name , 'w' );
+      fwrite( $fp, $img );
+      fclose( $fp );
+      $wp_filetype = wp_check_filetype( $img_name , null );
+      $attachment = array(
+        'post_mime_type' => $wp_filetype['type'],
+        'post_title' => preg_replace( '/\.[^.]+$/', '', $img_name ),
+        'post_content' => '',
+        'post_status' => 'inherit'
+      );
+      //require for wp_generate_attachment_metadata which generates image related meta-data also creates thumbs
+      require_once ABSPATH . 'wp-admin/includes/image.php';
+      $attach_id = wp_insert_attachment( $attachment, $upload_dir['path'].'/'.$img_name, $post_id );
+      //Generate post thumbnail of different sizes.
+      $attach_data = wp_generate_attachment_metadata( $attach_id , $upload_dir['path'].'/'.$img_name );
+      wp_update_attachment_metadata( $attach_id,  $attach_data );
+      $additional_image_url = wp_get_attachment_url( $attach_id );
+      //Set as featured image.
+      delete_post_meta( $post_id, '_igv_product_additional_image' );
+      add_post_meta( $post_id , '_igv_product_additional_image' , $additional_image_url, true );
     }
 
   }
