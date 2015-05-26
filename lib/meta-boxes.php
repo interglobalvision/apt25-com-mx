@@ -118,5 +118,12 @@ function igv_cmb_metaboxes() {
 		'type' => 'text',
 	) );
 
+  $products_metabox->add_field( array(
+    'name' => __( 'Additional Image', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
+    'id'   => $prefix . 'product_additional_image',
+    'type' => 'file',
+  ) );
+
 }
 ?>
