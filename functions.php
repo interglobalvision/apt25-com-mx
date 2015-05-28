@@ -154,12 +154,11 @@ function excerpt_length_post_type($length) {
 add_filter('excerpt_length', 'excerpt_length_post_type');
 
 // custom login logo
-/*
 function custom_login_logo() {
-  echo '<style type="text/css">h1 a { background-image:url(' . get_bloginfo( 'template_directory' ) . '/images/login-logo.png) !important; background-size:300px auto !important; width:300px !important; }</style>';
+  echo '<style type="text/css">h1 a { background-image:url(' . get_bloginfo( 'template_directory' ) . '/images/favicon.png) !important; background-size:194px auto !important; width:194px !important; height:194px !important;}</style>';
 }
 add_action( 'login_head', 'custom_login_logo' );
-*/
+
 
 // UTILITY FUNCTIONS
 
