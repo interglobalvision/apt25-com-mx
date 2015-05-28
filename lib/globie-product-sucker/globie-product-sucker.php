@@ -117,6 +117,7 @@ class Globie_Product_Sucker {
 
     // Sanitize user input
     $product_img = sanitize_text_field( $_POST['gpsucker-img-field'] );
+    $product_img = str_replace(' ', '%20', $product_img);
     $upload_dir = wp_upload_dir();
 
     //Get the remote image and save to uploads directory
@@ -154,6 +155,7 @@ class Globie_Product_Sucker {
     }
     // Sanitize user input
     $product_additional_img = sanitize_text_field( $_POST['_igv_product_additional_image'] );
+    $product_additional_img = str_replace(' ', '%20', $product_additional_img);
     $upload_dir = wp_upload_dir();
 
     //Get the remote image and save to uploads directory
