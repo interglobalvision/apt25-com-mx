@@ -87,8 +87,8 @@ if( have_posts() ) {
             <?php the_tags( '<p class="post-tags"><span class="u-bold-cn">TAGGED: </span>', ',', '</p>'); ?>
             <p class="post-share">
               <span class="u-bold-cn">SHARE: </span>
-              <a href="#"><span class="fa fa-twitter"></span></a>
-              <a href="#"><span class="fa fa-facebook"></span></a>
+              <a href="https://twitter.com/home?status=<?php echo urlencode(get_the_title()); ?>%20via%20%40apt25mx%20<?php the_permalink(); ?>"><span class="fa fa-twitter"></span></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>"><span class="fa fa-facebook"></span></a>
             </p>
           </div>
         </div>
