@@ -6,7 +6,7 @@ function scripts_and_styles_method() {
   // library.js is to bundle plugins. my.js is your scripts. enqueue more files as needed
   $jslib = $templateuri."library.js";
   wp_enqueue_script( 'jslib', $jslib,'','',true);
-  $myscripts = $templateuri."main.js";
+  $myscripts = $templateuri."main.min.js";
   wp_enqueue_script( 'myscripts', $myscripts,'','',true);
 
   // enqueue stylesheet here. file does not exist until stylus file is processed
@@ -153,9 +153,19 @@ function excerpt_length_post_type($length) {
 }
 add_filter('excerpt_length', 'excerpt_length_post_type');
 
+// wrapper for oembed iframes from YouTube or Vimeo
+add_filter('oembed_dataparse','oembed_video_add_wrapper',10,3);
+function oembed_video_add_wrapper($return, $data, $url) {
+  if ($data->provider_name == 'YouTube' || $data->provider_name == 'Vimeo') {
+    return "<div class='video-wrapper'>{$return}</div>";
+  } else {
+    return $return;
+  }
+}
+
 // custom login logo
 function custom_login_logo() {
-  echo '<style type="text/css">h1 a { background-image:url(' . get_bloginfo( 'template_directory' ) . '/images/favicon.png) !important; background-size:194px auto !important; width:194px !important; height:194px !important;}</style>';
+  echo '<style type="text/css">h1 a { background-image:url(' . get_bloginfo( 'template_directory' ) . '/img/favicon.png) !important; background-size:194px auto !important; width:194px !important; height:194px !important;}</style>';
 }
 add_action( 'login_head', 'custom_login_logo' );
 
