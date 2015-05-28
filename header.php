@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- 
+  Designed and Built by interglobal.vision in Mexico City 2015 
+-->
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
