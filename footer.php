@@ -16,7 +16,7 @@ $maps_url = 'https://www.google.com.mx/maps/place/'.$address_replaced;
           <?php if (!empty($hours)) { echo wpautop( $hours ); } ?>
         </div>
         <div class="col into-3">
-          <?php if (!empty($email)) { echo '<span class="contact-email"><a" href="mailto:' . $email . '">' . $email . '</a></span>'; } ?>
+          <?php if (!empty($email)) { echo '<span class="contact-email"><a href="mailto:' . $email . '">' . $email . '</a></span>'; } ?>
           <?php get_template_part('partials/subscribe'); ?>
         </div>
         <div class="col into-3 footer-social">
