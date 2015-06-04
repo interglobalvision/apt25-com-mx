@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- 
-  Designed and Built by interglobal.vision in Mexico City 2015 
+<!--
+  Designed and Built by interglobal.vision in Mexico City 2015
 -->
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
@@ -30,7 +30,7 @@
   </script>
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-  
+
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <?php wp_head(); ?>
 </head>
@@ -43,7 +43,7 @@
   <header id="header" class="container">
     <div class="row">
       <div class="col into-2">
-        <a href="<?php echo home_url(); ?>" class="logo"><?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/logo.svg' ); ?></a>
+        <a href="<?php echo home_url(); ?>"><?php echo url_get_contents( get_bloginfo('stylesheet_directory') . '/img/logo.svg' ); ?></a>
       </div>
       <div class="col into-2">
         <?php get_template_part('partials/nav'); ?>

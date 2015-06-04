@@ -905,13 +905,10 @@ svg.underline {
   width: 100%;
   margin: 28px 0;
 }
-.logo {
+#logo {
   display: inline-block;
   height: 140px;
   float: left;
-}
-.logo svg {
-  height: 100%;
 }
 .main-menu {
   display: inline-block;
@@ -1087,7 +1084,7 @@ input.email {
   #header {
     margin: 28px 0;
   }
-  .logo {
+  #logo {
     height: 140px;
   }
   .main-menu {
@@ -1184,7 +1181,7 @@ input.email {
   #header {
     margin: 21px 0;
   }
-  .logo {
+  #logo {
     height: 105px;
   }
   .main-menu {
@@ -1274,7 +1271,7 @@ input.email {
   #header {
     margin: 18px 0;
   }
-  .logo {
+  #logo {
     height: 90px;
   }
   .main-menu {
@@ -1375,7 +1372,7 @@ input.email {
   #header .into-2 {
     width: 50%;
   }
-  .logo {
+  #logo {
     height: 90px;
   }
   .main-menu {

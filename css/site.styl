@@ -83,7 +83,7 @@ em
   font-family: $font-helvetica
   font-style: italic
   font-weight: 300
-  
+
 strong
   font-family: $font-helvetica
   font-style: normal
@@ -103,16 +103,16 @@ strong em, em strong
 .u-bold-cn
   font-style: normal
   font-weight: 600
-  
+
 
 //FORM
 
-form 
+form
   position: relative
 
 input
   min-height: 0
-  
+
 .expand
   display: inline-block
   position: relative
@@ -122,28 +122,28 @@ input
     &:focus
       outline: none
       width: 200px
-      
+
 .zigzag
   stroke-width: 1.8
   &.small-stroke
     stroke-width: 1.3
-    
-::-webkit-input-placeholder 
+
+::-webkit-input-placeholder
   color: inherit
   font-style: inherit
   font-weight: inherit
 
-:-moz-placeholder 
+:-moz-placeholder
   color: inherit
   font-style: inherit
   font-weight: inherit
 
-::-moz-placeholder 
+::-moz-placeholder
   color: inherit
   font-style: inherit
   font-weight: inherit
 
-:-ms-input-placeholder 
+:-ms-input-placeholder
   color: inherit
   font-style: inherit
   font-weight: inherit
@@ -166,12 +166,12 @@ html
 img
   max-width: 100%
   height: auto
-  
+
 svg.underline
-  width: 100%; 
-  position: absolute;
-  left: 0;
-  bottom: -10px;
+  width: 100%
+  position: absolute
+  left: 0
+  bottom: -10px
 
 
 //the 100% widths are just so stylus can compile delete as desired
@@ -182,12 +182,10 @@ svg.underline
   width: 100%
   margin: $margin-small 0
 
-.logo
+#logo
   display: inline-block
   height: $margin-large
   float: left
-  svg
-    height: 100%
 
 .main-menu
   display: inline-block
@@ -195,7 +193,7 @@ svg.underline
   font-size: $font-size-basic
   text-align: right
   text-transform: uppercase
-  visibility: hidden;
+  visibility: hidden
 
 .menu-item
   display: inline-block
@@ -210,7 +208,7 @@ $color-yellow = rgb(255,255,51)
   &:hover
     color: $color-blue
     animation: blinky 300ms infinite linear
-  
+
 @keyframes blinky {
   0% { color: $color-pink; }
   33% { color: $color-blue; }
@@ -218,9 +216,9 @@ $color-yellow = rgb(255,255,51)
 }
 
 .flip
-  animation: flip 400ms infinite linear;
-  transform-style: preserve-3d;
-  
+  animation: flip 400ms infinite linear
+  transform-style: preserve-3d
+
 @keyframes flip {
   0% { transform: rotateX(0deg); }
   100% { transform: rotateX(360deg); }
@@ -234,14 +232,14 @@ $color-yellow = rgb(255,255,51)
 
 article
   margin: 0 0 $margin-large
-  &.archive-entry 
+  &.archive-entry
     margin-bottom: $margin-basic
-    
+
 .product-thumb
   width: auto
   max-width: 800px
   max-height: 485px
-  
+
 h1.article-title
   margin-bottom: .5em
 
@@ -263,13 +261,13 @@ h1.article-title
   img
     margin: 0 auto 1em
     display: block
-    
+
 .video-wrapper
   position: relative
   padding-bottom: 56.25% /* 16:9 */
   padding-top: 25px
   height: 0
-  iframe 
+  iframe
     position: absolute
     top: 0
     left: 0
@@ -283,15 +281,15 @@ h1.article-title
   text-align: center
   margin-top: 0.5em
   display: block
-  
+
 .credits
   margin-bottom: 2em
   list-style: none
-  a 
+  a
     text-decoration: underline
-  
+
 .post-tags
-  a 
+  a
     text-decoration: underline
     margin-left: 0.5em
 
@@ -304,10 +302,10 @@ h1.article-title
   margin-bottom: $margin-basic
   svg
     width: ( $margin-basic * 2 )
-    
+
 .archive-entry-img
   margin-bottom: 0.5em
-  
+
 
 
 // FOOTER
@@ -320,7 +318,7 @@ h1.article-title
     margin-bottom: 0
   p
     margin-bottom: 0
-    
+
 .address
   font-style: normal
   font-weight: 700
@@ -328,11 +326,11 @@ h1.article-title
 .footer-social
   text-align: right
   font-size: $font-size-medium
-  
+
 input.email
   font-weight: 300
   font-style: normal
-  
+
 .contact-email
   margin-bottom: 1em
   display: block
@@ -343,7 +341,7 @@ input.email
 @media screen and (max-width: $container)
   $gutter = 28px
   $container = 900px
-  
+
   .container-medium
     width: $container*.9
   .container-small
@@ -353,15 +351,15 @@ input.email
   for pcol in 1..$pcols
     .into-{pcol}
       width: ( 100% / pcol )
-      
+
   // HEADER
 
   #header
     margin: $margin-small 0
 
-  .logo
+  #logo
     height: $margin-large
-    
+
   .main-menu
     font-size: $font-size-basic
 
@@ -372,7 +370,7 @@ input.email
 
   article
     margin: 0 0 $margin-large
-    
+
   .product-thumb
     width: 100%
 
@@ -400,7 +398,7 @@ input.email
 
   .footer-social
     font-size: $font-size-medium
-    
+
 @media screen and (max-width: 900px)
   $gutter = 21px
   $container = 100%
@@ -414,7 +412,7 @@ input.email
   for pcol in 1..$pcols
     .into-{pcol}
       width: ( 100% / pcol )
-      
+
   // VARIABLES
 
   $margin-small = ($gutter)
@@ -425,9 +423,9 @@ input.email
   $font-size-basic = 16px
   $font-size-medium = 24px
   $font-size-header = 30px
-  
+
   // TYPOGRAPHY
-    
+
   body
     font-size: $font-size-basic
   h1
@@ -438,23 +436,23 @@ input.email
     font-size: $font-size-basic
   .date
     font-size: $font-size-small
-      
+
   // HEADER
 
   #header
     margin: $margin-small 0
 
-  .logo
+  #logo
     height: $margin-large
-    
+
   .main-menu
     font-size: $font-size-basic
-    
+
   .menu-item
     margin: 0 ( $margin-small / 2 ) $margin-small
     display: block
     text-align: right
-    
+
 
   // POSTS LOOP
 
@@ -485,16 +483,16 @@ input.email
 
   .footer-social
     font-size: $font-size-medium
-    
+
 @media screen and (max-width: 700px)
   $gutter = 18px
-  
+
   .col
     padding: 0 ($gutter/2)
   for pcol in 1..$pcols
     .into-{pcol}
       width: ( 100% / pcol )
-      
+
   // VARIABLES
 
   $margin-small = ($gutter)
@@ -505,9 +503,9 @@ input.email
   $font-size-basic = 16px
   $font-size-medium = 18px
   $font-size-header = 21px
-  
+
   // TYPOGRAPHY
-    
+
   body
     font-size: $font-size-basic
   h1
@@ -518,23 +516,23 @@ input.email
     font-size: $font-size-basic
   .date
     font-size: $font-size-small
-      
+
   // HEADER
 
   #header
     margin: $margin-small 0
 
-  .logo
+  #logo
     height: $margin-large
-    
+
   .main-menu
     font-size: $font-size-basic
-    
+
   .menu-item
     margin: 0 ( $margin-small / 2 ) $margin-small
     display: block
     text-align: right
-    
+
   // POSTS LOOP
 
   article
@@ -553,13 +551,13 @@ input.email
   #footer
     font-size: $font-size-basic
     padding: $margin-small 0
-      
-  .col 
+
+  .col
     margin-bottom: 1em
 
   .footer-social
     font-size: $font-size-medium
-    
+
 @media screen and (max-width: 500px)
   $gutter = 18px
   $container = 100%
@@ -573,7 +571,7 @@ input.email
   for pcol in 1..$pcols
     .into-{pcol}
       width: 100%
-      
+
   // VARIABLES
 
   $margin-small = ($gutter)
@@ -584,9 +582,9 @@ input.email
   $font-size-basic = 14px
   $font-size-medium = 16px
   $font-size-header = 18px
-  
+
   // TYPOGRAPHY
-    
+
   body
     font-size: $font-size-basic
   h1
@@ -597,15 +595,15 @@ input.email
     font-size: $font-size-basic
   .date
     font-size: $font-size-small
-    
+
   //FORM
-    
+
   .expand
     input
       width: 50px
       &:focus
         width: 100px
-      
+
   // HEADER
 
   #header
@@ -613,17 +611,17 @@ input.email
     .into-2
       width: 50%
 
-  .logo
+  #logo
     height: $margin-large
-    
+
   .main-menu
     font-size: $font-size-basic
-    
+
   .menu-item
     margin: 0 ( $margin-small / 2 ) $margin-small
     display: block
     text-align: right
-    
+
   // POSTS LOOP
 
   article
@@ -642,8 +640,8 @@ input.email
   #footer
     font-size: $font-size-basic
     padding: $margin-small 0
-      
-  .col 
+
+  .col
     margin-bottom: 1em
 
   .footer-social
