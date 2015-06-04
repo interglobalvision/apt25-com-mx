@@ -1051,36 +1051,6 @@ input.email {
   .col {
     padding: 0 14px;
   }
-  .into-1 {
-    width: 100%;
-  }
-  .into-2 {
-    width: 50%;
-  }
-  .into-3 {
-    width: 33.333333333333336%;
-  }
-  .into-4 {
-    width: 25%;
-  }
-  .into-5 {
-    width: 20%;
-  }
-  .into-6 {
-    width: 16.666666666666668%;
-  }
-  .into-7 {
-    width: 14.285714285714286%;
-  }
-  .into-8 {
-    width: 12.5%;
-  }
-  .into-9 {
-    width: 11.11111111111111%;
-  }
-  .into-10 {
-    width: 10%;
-  }
   #header {
     margin: 28px 0;
   }
@@ -1132,36 +1102,6 @@ input.email {
   }
   .col {
     padding: 0 10.5px;
-  }
-  .into-1 {
-    width: 100%;
-  }
-  .into-2 {
-    width: 50%;
-  }
-  .into-3 {
-    width: 33.333333333333336%;
-  }
-  .into-4 {
-    width: 25%;
-  }
-  .into-5 {
-    width: 20%;
-  }
-  .into-6 {
-    width: 16.666666666666668%;
-  }
-  .into-7 {
-    width: 14.285714285714286%;
-  }
-  .into-8 {
-    width: 12.5%;
-  }
-  .into-9 {
-    width: 11.11111111111111%;
-  }
-  .into-10 {
-    width: 10%;
   }
   body {
     font-size: 16px;
@@ -1222,36 +1162,6 @@ input.email {
 @media screen and (max-width: 700px) {
   .col {
     padding: 0 9px;
-  }
-  .into-1 {
-    width: 100%;
-  }
-  .into-2 {
-    width: 50%;
-  }
-  .into-3 {
-    width: 33.333333333333336%;
-  }
-  .into-4 {
-    width: 25%;
-  }
-  .into-5 {
-    width: 20%;
-  }
-  .into-6 {
-    width: 16.666666666666668%;
-  }
-  .into-7 {
-    width: 14.285714285714286%;
-  }
-  .into-8 {
-    width: 12.5%;
-  }
-  .into-9 {
-    width: 11.11111111111111%;
-  }
-  .into-10 {
-    width: 10%;
   }
   body {
     font-size: 16px;
@@ -1388,6 +1298,7 @@ input.email {
   }
   .gallery-item {
     margin-bottom: 90px;
+    padding: 0 9px !important;
   }
   #pagination {
     margin-bottom: 36px;

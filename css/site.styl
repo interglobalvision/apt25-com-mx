@@ -348,9 +348,6 @@ input.email
     width: $container*.8
   .col
     padding: 0 ($gutter/2)
-  for pcol in 1..$pcols
-    .into-{pcol}
-      width: ( 100% / pcol )
 
   // HEADER
 
@@ -409,9 +406,6 @@ input.email
     width: $container*.9
   .col
     padding: 0 ($gutter/2)
-  for pcol in 1..$pcols
-    .into-{pcol}
-      width: ( 100% / pcol )
 
   // VARIABLES
 
@@ -489,9 +483,6 @@ input.email
 
   .col
     padding: 0 ($gutter/2)
-  for pcol in 1..$pcols
-    .into-{pcol}
-      width: ( 100% / pcol )
 
   // VARIABLES
 
@@ -629,6 +620,7 @@ input.email
 
   .gallery-item
     margin-bottom: $margin-large
+    padding: 0 ($gutter/2) !important
 
   #pagination
     margin-bottom: $margin-basic
