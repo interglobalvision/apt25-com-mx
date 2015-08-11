@@ -70,7 +70,7 @@ function my_gallery_shortcode($attr) {
 
 		$tag = '';
 
-		$img = wp_get_attachment_image_src($id, $size);
+		$img = wp_get_attachment_image_src($id, 'image-large');
 		$dimensions = getimagesize($img[0]);
 		$into = 1;
 		$orientation = 'landscape';
@@ -91,11 +91,6 @@ function my_gallery_shortcode($attr) {
 			$max = 15;
 		}
 		$rand_percent = rand ( $min , $max );
-		
-/*
-		$largeimg = wp_get_attachment_image_src($id, 'single');
-		$large = $largeimg[0];
-*/
 
 if ( trim($attachment->post_excerpt) ) {
 			$tag = "
