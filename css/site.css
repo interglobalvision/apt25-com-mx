@@ -837,6 +837,9 @@ em strong {
   font-style: normal;
   font-weight: 600;
 }
+hr {
+  border-width: 1px;
+}
 form {
   position: relative;
 }
@@ -968,6 +971,9 @@ h1.article-title {
 .type-post-content img {
   margin: 0 auto 1em;
   display: block;
+}
+.type-post-content a {
+  text-decoration: underline;
 }
 .video-wrapper {
   position: relative;
