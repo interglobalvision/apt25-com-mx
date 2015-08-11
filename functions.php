@@ -36,7 +36,7 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'image-basic', 1000, 700, false );
   add_image_size( 'image-large', 1600, 1200, false );
 
-  add_image_size( 'related', 332, 184, false );
+  add_image_size( 'related', 332, 184, true );
 }
 
 // Register Nav Menus
