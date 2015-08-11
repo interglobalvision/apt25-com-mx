@@ -70,7 +70,7 @@ function my_gallery_shortcode($attr) {
 
 		$tag = '';
 
-		$img = wp_get_attachment_image_src($id, 'image-large');
+		$img = wp_get_attachment_image_src($id, 'image-basic');
 		$dimensions = getimagesize($img[0]);
 		$into = 1;
 		$orientation = 'landscape';
