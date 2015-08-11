@@ -6,7 +6,7 @@ if ($post_type == 'product') {
   $product_url = get_post_meta( $entry_id, '_product_shop_url', true );
   $product_title = ucwords(strtolower(get_the_title( $entry_id )));
 ?>
-  <a href="<?php echo $product_url; ?>"><?php echo get_the_post_thumbnail( $entry_id, 'feed-small', 'class=archive-entry-img' ); ?></a>
+  <a href="<?php echo $product_url; ?>"><?php echo get_the_post_thumbnail( $entry_id, 'related', 'class=archive-entry-img' ); ?></a>
   <h2>
     <a href="<?php echo $product_url; ?>"><?php echo $product_title; ?></a>
   </h2>
@@ -14,7 +14,7 @@ if ($post_type == 'product') {
 <?php
 } else {
 ?>
-	<a href="<?php echo get_the_permalink( $entry_id ) ?>"><?php echo get_the_post_thumbnail( $entry_id, 'feed-small', 'class=archive-entry-img' ); ?></a>
+	<a href="<?php echo get_the_permalink( $entry_id ) ?>"><?php echo get_the_post_thumbnail( $entry_id, 'related', 'class=archive-entry-img' ); ?></a>
   <h2>
     <a href="<?php echo get_the_permalink( $entry_id ) ?>"><?php echo get_the_title( $entry_id ); ?></a>
   </h2>
