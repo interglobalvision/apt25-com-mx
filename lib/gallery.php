@@ -33,7 +33,7 @@ function my_gallery_shortcode($attr) {
 		'icontag'    => 'li',
 		'captiontag' => 'span',
 		'columns'    => 3,
-		'size'       => 'gallery',
+		'size'       => 'image-large',
 		'include'    => '',
 		'exclude'    => ''
 	), $attr));
