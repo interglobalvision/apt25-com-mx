@@ -6,13 +6,7 @@ function l(data) {
   console.log(data);
 }
 
-var 
-	menuItemWidth,
-	svgHeight,
-	$underline,
-	headerHeight,
-	footerHeight,
-	windowHeight;
+var menuItemWidth;
 
 jQuery(document).ready(function () {
   'use strict';
