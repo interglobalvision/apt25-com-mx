@@ -44,18 +44,36 @@ $num_posts = 12;
       ),
     );
   } else if (is_search()) {
-    global $query_string;
+    $search_term =  $_GET['s'];
 
-    $query_args = explode("&", $query_string);
-    $args = array(
-      'posts_per_page' => $num_posts,
+    $search_args = array(
       'post_type' => array('post','lookbook','product'),
+      's' => $search_term,
+      'fields' => 'ids',
     );
 
-    foreach($query_args as $key => $string) {
-      $query_split = explode("=", $string);
-      $args[$query_split[0]] = urldecode($query_split[1]);
-    }
+    $tag_args = array(
+      'post_type' => array('post','lookbook','product'),
+      'tag' => $search_term,
+      'fields' => 'ids',
+    );
+
+    $search_posts = new WP_Query( $search_args );
+    $tag_posts = new WP_Query( $tag_args );
+
+
+    // Merge IDs
+    $results = array_merge( $search_posts->posts, $tag_posts->posts);
+
+    $args =  array(
+      'post_type' => array('post','lookbook','product'),
+      'posts_per_page' => $num_posts,
+      'post__in'  => $results,
+      'orderby'   => 'date',
+      'order'     => 'DESC'
+    );
+
+
   } else {
     $post_type = get_post_type();
     $args = array(
