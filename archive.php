@@ -66,9 +66,16 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $search_posts = new WP_Query( $search_args );
     $tag_posts = new WP_Query( $tag_args );
 
+    if ( $search_posts->have_posts() || $tag_posts->have_posts() ) {
 
-    // Merge IDs
-    $results = array_merge( $search_posts->posts, $tag_posts->posts);
+      // Merge IDs
+      $results = array_merge( $search_posts->posts, $tag_posts->posts);
+
+    } else {
+
+      $results = array(0);
+
+    }
 
     $args =  array(
       'post_type' => array('post','lookbook','product'),
@@ -76,7 +83,6 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
       'post__in'  => $results,
       'paged' => $paged,
     );
-
 
   } else {
     $post_type = get_post_type();
