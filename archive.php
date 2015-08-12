@@ -6,6 +6,8 @@ get_header();
 
 $num_posts = 12;
 
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 ?>
 
 <!-- main content -->
@@ -20,11 +22,13 @@ $num_posts = 12;
     $args = array(
       'posts_per_page' => $num_posts,
       'post_type' => 'post',
+      'paged' => $paged,
     );
   } else if (is_page('archive')) {
     $args = array(
       'post_type' => array('post','lookbook','product'),
       'posts_per_page' => $num_posts,
+      'paged' => $paged,
     );
   } else if (is_tag()) {
     $term_id = get_query_var('tag_id');
@@ -35,6 +39,7 @@ $num_posts = 12;
     $args = array(
       'posts_per_page' => $num_posts,
       'post_type' => array('post','lookbook','product'),
+      'paged' => $paged,
       'tax_query' => array(
         array(
           'taxonomy' => 'post_tag',
@@ -69,8 +74,7 @@ $num_posts = 12;
       'post_type' => array('post','lookbook','product'),
       'posts_per_page' => $num_posts,
       'post__in'  => $results,
-      'orderby'   => 'date',
-      'order'     => 'DESC'
+      'paged' => $paged,
     );
 
 
@@ -79,10 +83,11 @@ $num_posts = 12;
     $args = array(
       'posts_per_page' => $num_posts,
       'post_type' => $post_type,
+      'paged' => $paged,
     );
   }
-  $posts = get_posts( $args );
-  if (! empty($posts)) { ?>
+  $query = new WP_Query( $args );
+  if ( $query->have_posts() ) { ?>
     <div class="container container-large">
 <?php 
     if (is_search()) { 
@@ -95,9 +100,9 @@ $num_posts = 12;
 <?php } ?>
       <div class="row">
 <?php
-    foreach ($posts as $post) {
-      setup_postdata( $post );
-      $entry_id = $post->ID;
+    while ( $query->have_posts() ) {
+     $query->the_post();  
+     $entry_id = $post->ID;
 ?>
       <article class="col into-3 archive-entry">
         <?php set_query_var( 'entry_id', $entry_id ); get_template_part( 'archive', 'entry' ); ?>   
@@ -107,6 +112,36 @@ $num_posts = 12;
 ?>
       </div>
     </div>
+
+    <!-- post pagination -->
+    <nav id="pagination">
+      <div class="container container-small">
+        <div class="row">
+<?php
+$right = url_get_contents( get_bloginfo('stylesheet_directory') . '/img/arrow-right.svg' );
+$left = url_get_contents( get_bloginfo('stylesheet_directory') . '/img/arrow-left.svg' );
+
+$previous = get_previous_posts_link($left);
+$next = get_next_posts_link($right, $query->max_num_pages);
+if ($previous && $next) {
+?>
+          <span class="col into-2 u-align-left"><?php echo $previous; ?></span>
+          <span class="col into-2 u-align-right"><?php echo $next; ?></span>
+<?php
+} else if ($previous && !$next) {
+?>
+          <span class="col into-1 u-align-left"><?php echo $previous; ?></span>
+<?php
+} else if ($next && !$previous) {
+?>
+          <span class="col into-1 u-align-right"><?php echo $next; ?></span>
+<?php
+}
+?>
+        </div>
+      </div>
+    </nav>
+
 <?php
   } else {
 ?>
@@ -131,8 +166,6 @@ $num_posts = 12;
 
   <!-- end posts -->
   </section>
-
-  <?php get_template_part('partials/pagination'); ?>
 
 <!-- end main-content -->
 
