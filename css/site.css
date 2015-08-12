@@ -798,6 +798,7 @@ h2 {
   font-weight: 700;
   font-size: 30px;
   line-height: 1.35em;
+  word-wrap: break-word;
 }
 h3 {
   font-family: 'HelveticaNeue', helvetica, arial, sans-serif;
