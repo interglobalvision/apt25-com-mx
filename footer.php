@@ -34,25 +34,21 @@ $maps_url = 'https://www.google.com.mx/maps/place/'.$address_replaced;
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
-      "@type": "Organization",
-      "url": "http://www.example.com",
-      "logo": "http://www.example.com/images/logo.png",
-      "contactPoint" : [
-        { "@type" : "ContactPoint",
-          "telephone" : "+1-877-746-0909",
-          "contactType" : "customer service",
-          "contactOption" : "TollFree",
-          "areaServed" : "US"
-        } , {
-          "@type" : "ContactPoint",
-          "telephone" : "+1-505-998-3793",
-          "contactType" : "customer service"
-        } ],
+      "@type": "LocalBusiness",
+      "url": "<?php bloginfo('url'); ?>",
+      "logo": "<?php echo get_stylesheet_directory_uri(); ?>/img/og.jpg",
       "sameAs" : [
-        "http://www.facebook.com/your-profile",
-        "http://instagram.com/yourProfile",
-        "http://www.linkedin.com/in/yourprofile",
-        "http://plus.google.com/your_profile"
+      <?php
+        if (!empty($facebook)) {
+          echo '"' . $facebook . '",';
+        }
+        if (!empty($twitter)) {
+          echo '"' . $twitter . '",';
+        }
+        if (!empty($instagram)) {
+          echo '"' . $instagram . '"';
+        }
+      ?>
         ]
     }
   </script>
